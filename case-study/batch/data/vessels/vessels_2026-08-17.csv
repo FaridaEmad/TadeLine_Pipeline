@@ -1,0 +1,89 @@
+name,type,year_built,gross_tonnage,deadweight,length(m),beam(m),detail_link,departure_date,last_port_country,last_port_name,arrival_date,destination_port_country,destination_port_name,destination_port_lat,destination_port_lon,reported_status,report_date
+WADI ALMOLOUK,Bulk Carrier,2020,44732,82318,229,32,https://www.vesselfinder.com/vessels/details/9897999,2026-07-30 09:39,India,Kandla,2026-08-29 00:00,Brazil,Santos,23.9806S,46.3377W,Under way,2026-08-17 11:24
+WADI ALARISH,Bulk Carrier,2024,44560,82234,229,32,https://www.vesselfinder.com/vessels/details/9952672,2026-08-03 19:19,Brazil,Paranagua,2026-09-03 00:00,Singapore,Singapore,1.2788N,103.7566E,-,2026-08-16 17:41
+WADI ALMALEKAT,Bulk Carrier,2017,44069,81227,229,32,https://www.vesselfinder.com/vessels/details/9763904,2026-08-14 04:27,China,Dongjiakou,2026-09-01 16:00,Canada,Vancouver,49.2925N,123.1049W,-,2026-08-15 22:38
+WADI TIBA,Bulk Carrier,2011,43736,80469,229,32,https://www.vesselfinder.com/vessels/details/9460746,2026-07-23 03:22,Egypt,As Suways (Suez) Anch.,,,Destination not available,,,-,2026-07-28 13:45
+WADI ALKARM,Bulk Carrier,2011,43736,80533,229,32,https://www.vesselfinder.com/vessels/details/9460760,2026-06-10 18:33,Egypt,As Suways (Suez) Anch.,2026-12-06 01:00,Saudi Arabia,Yanbu,23.9443N,38.2183E,-,2026-07-23 08:51
+WADI SAFAGA,Bulk Carrier,2010,43736,80443,229,32,https://www.vesselfinder.com/vessels/details/9460734,2026-07-26 03:31,Singapore,Singapore Anch. 4,2026-08-11 16:00,China,Zhoushan,29.9842N,122.1233E,-,2026-08-10 10:10
+WADI ALYARMOUK,Bulk Carrier,2010,43726,80384,229,32,https://www.vesselfinder.com/vessels/details/9460772,2026-08-08 01:26,Egypt,Port Said Anch.,2026-08-10 12:00,Saudi Arabia,Yanbu al-Bahr,24.0633N,38.044E,Under way,2026-08-17 11:25
+ESNA,Bulk Carrier,1998,38464,71598,224,32,https://www.vesselfinder.com/vessels/details/9139268,2026-08-13 10:03,China,Liuheng,2026-08-13 10:00,China,Zhoushan,29.9842N,122.1233E,Moored,2026-08-17 05:39
+EDFU,Bulk Carrier,1997,38464,71572,224,32,https://www.vesselfinder.com/vessels/details/9139256,,Egypt,Great Bitter Lake / Suez Canal Anch.,2026-08-07 00:00,Saudi Arabia,Jeddah,21.4614N,39.116E,Under way,2026-08-17 09:08
+WADI AL KARNAK,Bulk Carrier,1997,37028,70090,225,32,https://www.vesselfinder.com/vessels/details/9127136,2026-07-16 15:20,Egypt,As Suways (Suez) Anch.,2026-07-19 07:00,Saudi Arabia,Jeddah,21.4614N,39.116E,Under way,2026-08-17 03:57
+WADI ALARAB,Bulk Carrier,1995,37027,64214,225,32,https://www.vesselfinder.com/vessels/details/9107681,2026-08-12 00:21,Egypt,Port Said Anch.,,,Destination not available,,,-,2026-08-15 11:15
+WADI ALRAYAN,Container Ship,2000,34749,40301,215,32,https://www.vesselfinder.com/vessels/details/9208875,2026-08-01 21:27,United Arab Emirates (UAE),Fujairah,2026-08-02 00:23,United Arab Emirates (UAE),Fujairah,25.1916N,56.3761E,-,2026-08-03 08:12
+WADI FERAN,Bulk Carrier,2011,33234,57282,190,32,https://www.vesselfinder.com/vessels/details/9460083,2026-07-29 03:06,Egypt,As Suways (Suez) Anch.,2026-11-08 07:00,Kenya,Mombasa,4.0776S,39.6844E,-,2026-07-31 13:27
+WADI ALBOSTAN,Bulk Carrier,2011,33234,57320,190,32,https://www.vesselfinder.com/vessels/details/9460722,2026-08-15 18:24,South Africa,Cape Town,2026-08-16 02:29,South Africa,Saldanha Bay Anch.,33.0578S,17.9555E,At anchor,2026-08-17 11:23
+EGY CROWN,Container Ship,2000,14241,18425,159,24,https://www.vesselfinder.com/vessels/details/9216107,2026-08-16 03:39,Egypt,Port Said East,2026-08-16 20:38,Egypt,Alexandria Anch.,31.166N,29.8385E,At anchor,2026-08-17 01:56
+EGY FUTURE,Container Ship,1998,13977,18425,159,24,https://www.vesselfinder.com/vessels/details/9127538,2026-08-16 09:54,Egypt,Alexandria Anch.,2026-08-16 10:47,Egypt,Alexandria,31.166N,29.8385E,Moored,2026-08-17 01:58
+AL HURREYA 2,Ro-Ro Cargo Ship,2007,13529,5904,140,24,https://www.vesselfinder.com/vessels/details/9309136,2026-08-16 22:20,Saudi Arabia,Jeddah Anchorage,2026-08-16 23:06,Saudi Arabia,Jeddah Anchorage,21.4614N,39.116E,At anchor,2026-08-17 09:25
+AL HURREYA,Ro-Ro Cargo Ship,2005,13529,5904,140,24,https://www.vesselfinder.com/vessels/details/9266487,2026-08-16 23:06,Saudi Arabia,Duuba,2026-08-17 07:00,Egypt,Safaga,26.7429N,33.9501E,Under way,2026-08-17 02:04
+ELREEDY STAR,General Cargo Ship,1998,13066,20537,153,24,https://www.vesselfinder.com/vessels/details/9161182,2026-08-16 08:58,Djibouti,Djibouti Anch.,2026-08-16 10:11,Djibouti,Djibouti,11.609N,43.1203E,Moored,2026-08-17 11:23
+EGY SKY,Container Ship,2007,10308,12720,149,23,https://www.vesselfinder.com/vessels/details/9366483,2026-08-17 06:31,Syria,Latakia,,,Destination not available,,,Under way,2026-08-17 11:15
+PAN GG,Container Ship,2002,10308,12562,149,23,https://www.vesselfinder.com/vessels/details/9236286,2026-08-16 23:12,Egypt,El Dekheila,,,ELDEKHILA,,,Moored,2026-08-17 01:23
+LOTUS,General Cargo Ship,1999,8443,9389,136,20,https://www.vesselfinder.com/vessels/details/9193525,2026-08-17 05:33,Syria,Latakia Anch.,,,Destination not available,,,Under way,2026-08-17 06:43
+BRIDGE,Ro-Ro Cargo Ship,1989,7363,4683,122,20,https://www.vesselfinder.com/vessels/details/8708622,2026-08-16 03:01,Saudi Arabia,Duuba,,,SAFAGA<->NEOM,,,-,2026-08-16 10:58
+AL SHAYMAA,General Cargo Ship,1981,5744,8207,128,18,https://www.vesselfinder.com/vessels/details/7612400,,,,,,,,,,
+MERSA ALAM,General Cargo Ship,2000,4414,6016,101,18,https://www.vesselfinder.com/vessels/details/9055175,,,,,,,,,,
+ELMALEK KHALED,Ro-Ro Cargo Ship,1970,499,1046,76,13,https://www.vesselfinder.com/vessels/details/7010171,,,,,,,,,,
+SHOROK 1,General Cargo Ship,2012,200,294,-,-,https://www.vesselfinder.com/vessels/details/9593581,,,,,,,,,,
+RAS EL KHAIMA,Ro-Ro Cargo Ship,1970,499,1046,76,13,https://www.vesselfinder.com/vessels/details/7023958,,,,,,,,,,
+WADI ALKAMAR,Bulk Carrier,2026,44601,82000,229,32,https://www.vesselfinder.com/vessels/details/1064807,,,,,,,,,,
+SHOROK 3,General Cargo Ship,2012,200,294,-,-,https://www.vesselfinder.com/vessels/details/9593608,,,,,,,,,,
+ZAHER,Cargo ship,-,-,-,15,27,https://www.vesselfinder.com/vessels/details/622122260,,,,,,Destination not available,,,-,2026-05-12 12:27
+NOUR,General Cargo Ship,1969,110,161,-,-,https://www.vesselfinder.com/vessels/details/6913443,,,,,,,,,,
+SHOROK 4,General Cargo Ship,2012,200,294,-,-,https://www.vesselfinder.com/vessels/details/9593610,,,,,,,,,,
+KATANA,Cargo ship,-,-,-,-,-,https://www.vesselfinder.com/vessels/details/622098625,2026-06-14 12:08,Egypt,Hurghada,,,Destination not available,,,-,2026-06-17 19:52
+SAKKR 2,General Cargo Ship,1981,100,20,24,5,https://www.vesselfinder.com/vessels/details/7910606,,,,,,,,,,
+VAG,Cargo ship,-,-,-,138,16,https://www.vesselfinder.com/vessels/details/622050863,,,,,,Destination not available,,,-,2025-12-24 13:47
+MV ROYAL,Cargo ship,-,-,-,-,-,https://www.vesselfinder.com/vessels/details/622121120,2026-07-24 06:07,Nigeria,Lagos Anch.,,,Destination not available,,,-,2026-07-25 01:20
+SHOROK 2,General Cargo Ship,2012,200,294,-,-,https://www.vesselfinder.com/vessels/details/9593593,,,,,,,,,,
+SUEZ FLOWER,General Cargo Ship,1970,1179,1727,73,12,https://www.vesselfinder.com/vessels/details/7012507,,,,,,,,,,
+AL HURREYA-3,Ro-Ro Cargo Ship,2024,20437,11668,174,25,https://www.vesselfinder.com/vessels/details/9500390,2026-07-29 06:50,Egypt,Alexandria,,,Destination not available,,,-,2026-08-12 12:13
+EL AABED,General Cargo Ship,1973,1981,3068,80,14,https://www.vesselfinder.com/vessels/details/7325643,,,,,,,,,,
+ATHINEA,Crude Oil Tanker,2006,60788,107160,248,43,https://www.vesselfinder.com/vessels/details/9291248,,Egypt,Great Bitter Lake / Suez Canal Anch.,,,RAS BADRAN,,,-,2026-08-15 02:38
+ETC RAMSIS,Crude Oil Tanker,2003,59574,110673,246,42,https://www.vesselfinder.com/vessels/details/9260809,2026-08-17 01:53,Egypt,Port Said Anch.,,,RAS BUDRAN,,,Under way,2026-08-17 11:26
+ALEXIA 3,Crude Oil Tanker,1999,56841,105570,248,43,https://www.vesselfinder.com/vessels/details/9173721,,,,,,,,,,
+CHRIS,Crude Oil Tanker,2004,49838,105778,239,42,https://www.vesselfinder.com/vessels/details/9304643,,Egypt,Ras Sadat Term.,,,SDT_EG,,,Under way,2026-08-17 01:17
+AL NABILA 6,Chemical/Oil Products Tanker,2003,22184,34810,171,27,https://www.vesselfinder.com/vessels/details/9236987,2026-08-07 12:25,Egypt,Ain Sukhna Anch.,,,AIN SUKHNA / EGY,,,At anchor,2026-08-17 01:17
+SHARIFA 5,Chemical/Oil Products Tanker,2006,19758,29015,176,29,https://www.vesselfinder.com/vessels/details/9340594,2026-08-16 08:50,Egypt,As Suways Oil Berth,2026-08-16 05:00,Egypt,Suez Canal,30.7657N,32.3247E,Moored,2026-08-17 11:25
+NAGDA 2,Oil Products Tanker,1984,2042,3220,88,16,https://www.vesselfinder.com/vessels/details/8215376,,,,,,,,,,
+NAGDA1,Oil Products Tanker,1984,2042,3220,88,16,https://www.vesselfinder.com/vessels/details/8215364,,,,,,Destination not available,,,-,2026-08-06 07:50
+CPCVI,Bunkering Tanker,2015,1581,2397,74,12,https://www.vesselfinder.com/vessels/details/9758181,2026-08-17 08:35,Egypt,As Suways / Suez Port,2026-07-22 22:30,Egypt,Suez Canal,30.7657N,32.3247E,At anchor,2026-08-17 11:27
+CPC IV,Oil Products Tanker,2021,1129,1681,67,12,https://www.vesselfinder.com/vessels/details/9919606,2026-08-13 14:48,Egypt,Alexandria,,,Destination not available,,,Moored,2026-08-17 02:07
+CPC II,Bunkering Tanker,2012,1049,1601,66,12,https://www.vesselfinder.com/vessels/details/9659907,2026-08-01 21:26,Egypt,As Suways / Suez Port,2026-12-01 09:00,Egypt,Suez Canal,30.7657N,32.3247E,Moored,2026-08-17 11:21
+CPC I,Bunkering Tanker,2012,1049,1601,66,12,https://www.vesselfinder.com/vessels/details/9620267,2026-08-04 18:47,Egypt,As Suways / Suez Port,,,SUZE EGYPT,,,Moored,2026-08-17 11:26
+MISR 1,Bunkering Tanker,2015,1021,1754,68,11,https://www.vesselfinder.com/vessels/details/9763368,2026-08-17 07:06,Egypt,As Suways / Suez Port,,,Destination not available,,,Moored,2026-08-17 11:27
+MISR 2,Bunkering Tanker,2019,1021,1750,68,11,https://www.vesselfinder.com/vessels/details/9871672,2026-07-30 15:18,Egypt,As Suways / Suez Port,,,Destination not available,,,-,2026-07-30 15:53
+MISR 3,Bunkering Tanker,2019,998,1750,68,11,https://www.vesselfinder.com/vessels/details/9871684,2026-08-16 18:02,Egypt,As Suways / Suez Port,,,Destination not available,,,-,2026-08-17 11:27
+NISR 3,Bunkering Tanker,1980,687,965,57,10,https://www.vesselfinder.com/vessels/details/7821233,,,,,,,,,,
+EMDAD 1,Oil Products Tanker,2026,500,900,48,9,https://www.vesselfinder.com/vessels/details/9672076,2026-08-07 19:27,Egypt,Port Said,,,Destination not available,,,-,2026-08-17 11:25
+CPCIII,Oil Products Tanker,2013,499,810,50,10,https://www.vesselfinder.com/vessels/details/9653355,2026-04-13 01:57,Egypt,Alexandria,,,Destination not available,,,-,2026-08-02 06:25
+HEBAT ALLAH 1,Bunkering Tanker,1985,494,700,45,9,https://www.vesselfinder.com/vessels/details/8518132,,,,,,,,,,
+NISR 4,Bunkering Tanker,1980,678,965,57,10,https://www.vesselfinder.com/vessels/details/7821245,,,,,,,,,,
+ALEXIA 3,Tanker,-,-,-,248,43,https://www.vesselfinder.com/vessels/details/622120925,2026-08-16 03:31,Egypt,As Suways (Suez) Anch.,,,EGHAMRA,,,Under way,2026-08-17 00:04
+SOHEIR,Oil Products Tanker,1965,905,1583,69,10,https://www.vesselfinder.com/vessels/details/6522000,,,,,,,,,,
+ALEX STAR,Bunkering Tanker,1999,311,297,37,8,https://www.vesselfinder.com/vessels/details/8999582,,,,,,,,,,
+NADA 2,Oil Products Tanker,1978,1003,1345,65,10,https://www.vesselfinder.com/vessels/details/7720386,,,,,,,,,,
+SALWA,Oil Products Tanker,1965,638,1260,71,10,https://www.vesselfinder.com/vessels/details/6501587,,,,,,,,,,
+SEA STAR PORT SAID,Tanker,-,-,-,19,6,https://www.vesselfinder.com/vessels/details/622108203,,,,,,Destination not available,,,-,2026-04-29 10:58
+TAAWON 15,Oil Products Tanker,1990,148,120,33,6,https://www.vesselfinder.com/vessels/details/8611934,,,,,,,,,,
+REDA MEN ALLAH,Tanker,-,-,-,26,6,https://www.vesselfinder.com/vessels/details/622104701,2026-08-16 11:55,Egypt,Port Said Anch.,,,Destination not available,,,-,2026-08-16 12:49
+SERI BALHAF,Tanker,-,-,-,480,72,https://www.vesselfinder.com/vessels/details/622121029,,,,,,,,,,
+SPEED 1,Chemical/Oil Products Tanker,2007,436,595,49,8,https://www.vesselfinder.com/vessels/details/9145566,,,,,,,,,,
+TIMSAH 3,Oil Products Tanker,1982,260,300,43,8,https://www.vesselfinder.com/vessels/details/7928316,,,,,,,,,,
+TANKER NO. 230,Oil Products Tanker,1978,300,491,43,8,https://www.vesselfinder.com/vessels/details/7944748,,,,,,,,,,
+CPCV,Oil Products Tanker,2022,1129,1678,66,12,https://www.vesselfinder.com/vessels/details/9933949,2026-08-12 16:42,Egypt,As Suways / Suez Port,2026-08-23 19:00,Egypt,Suez Canal,30.7657N,32.3247E,Moored,2026-08-17 11:24
+BADR,Oil Products Tanker,1984,260,400,43,8,https://www.vesselfinder.com/vessels/details/7928330,,,,,,,,,,
+TAAWON 11,Crude Oil Tanker,1982,643,1085,60,10,https://www.vesselfinder.com/vessels/details/8112201,,,,,,,,,,
+NOUR 1,Tanker,-,-,-,43,9,https://www.vesselfinder.com/vessels/details/622102400,2026-08-12 06:29,Egypt,Port Said East,,,Destination not available,,,-,2026-08-12 08:43
+SUEZ 1,Oil Products Tanker,1994,200,120,33,7,https://www.vesselfinder.com/vessels/details/9036492,,,,,,,,,,
+TAAWON 3,Oil Products Tanker,1960,392,500,53,8,https://www.vesselfinder.com/vessels/details/5348093,,,,,,,,,,
+TAAWON 4,Oil Products Tanker,1959,391,500,53,9,https://www.vesselfinder.com/vessels/details/5348108,,,,,,,,,,
+NISR 1,Oil Products Tanker,1977,1244,1829,73,11,https://www.vesselfinder.com/vessels/details/7600615,,,,,,,,,,
+UNISHIP I,Oil Products Tanker,1963,217,284,35,8,https://www.vesselfinder.com/vessels/details/5419103,,,,,,,,,,
+TAAWON 14,Bunkering Tanker,1984,643,975,60,10,https://www.vesselfinder.com/vessels/details/8316742,,,,,,,,,,
+TAAWON 9,Oil Products Tanker,1977,1244,1829,73,11,https://www.vesselfinder.com/vessels/details/7600639,,,,,,,,,,
+CIDCO OIL,Oil Products Tanker,2014,434,1000,46,9,https://www.vesselfinder.com/vessels/details/9769582,,,,,,,,,,
+NISR 2,Oil Products Tanker,1977,1243,1829,73,11,https://www.vesselfinder.com/vessels/details/7600641,,,,,,,,,,
+TAAWON 8,Oil Products Tanker,1977,1244,1829,73,11,https://www.vesselfinder.com/vessels/details/7600627,,,,,,,,,,
+FEKRY,Oil Products Tanker,1982,260,300,43,8,https://www.vesselfinder.com/vessels/details/7928328,,,,,,,,,,
