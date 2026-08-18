@@ -1,0 +1,208 @@
+name: tidaline-case-study
+
+x-sftp-env: &sftp-env
+  SFTP_USER: user
+  SFTP_PASSWORD: pass
+  SFTP_HOST: sftp
+  SFTP_PORT: 22
+
+services:
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: kafka
+    hostname: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:29093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CONTROLLER:PLAINTEXT,INTERNAL:PLAINTEXT,HOST:PLAINTEXT
+      KAFKA_LISTENERS: CONTROLLER://0.0.0.0:29093,INTERNAL://0.0.0.0:29092,HOST://0.0.0.0:9092
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:29092,HOST://localhost:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+    healthcheck:
+      test: [ "CMD-SHELL", "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1" ]
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 20s
+    volumes:
+      - kafka_kraft_data:/var/lib/kafka/data
+    networks:
+      - case-study-network
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    hostname: postgres
+    ports:
+      - "7432:5432"
+    environment:
+      POSTGRES_DB: maritime_logistics
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    command: [ "postgres", "-c", "wal_level=logical", "-c", "max_replication_slots=10", "-c", "max_wal_senders=10" ]
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres -d maritime_logistics -h localhost" ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./stream/create_earthquakes.sql:/docker-entrypoint-initdb.d/01-earthquakes.sql:ro
+    restart: unless-stopped
+    networks:
+      - case-study-network
+
+  stream_extractor:
+    build:
+      context: ./stream
+      dockerfile: Dockerfile
+    container_name: stream_extractor
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: maritime_logistics
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      RETRY_SECONDS: 10
+      LOG_LEVEL: INFO
+    restart: unless-stopped
+    networks:
+      - case-study-network
+
+  kafka-connect:
+    image: debezium/connect:2.5
+    container_name: kafka-connect
+    hostname: kafka-connect
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8083:8083"
+    environment:
+      BOOTSTRAP_SERVERS: kafka:29092
+      GROUP_ID: case-study-connect
+      CONFIG_STORAGE_TOPIC: case-study-connect-configs
+      OFFSET_STORAGE_TOPIC: case-study-connect-offsets
+      STATUS_STORAGE_TOPIC: case-study-connect-status
+      CONFIG_STORAGE_REPLICATION_FACTOR: 1
+      OFFSET_STORAGE_REPLICATION_FACTOR: 1
+      STATUS_STORAGE_REPLICATION_FACTOR: 1
+      KEY_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      VALUE_CONVERTER: org.apache.kafka.connect.json.JsonConverter
+      KEY_CONVERTER_SCHEMAS_ENABLE: "false"
+      VALUE_CONVERTER_SCHEMAS_ENABLE: "false"
+    healthcheck:
+      test: [ "CMD-SHELL", "curl --silent --fail http://localhost:8083/connector-plugins >/dev/null" ]
+      interval: 10s
+      timeout: 5s
+      retries: 18
+      start_period: 30s
+    restart: unless-stopped
+    networks:
+      - case-study-network
+
+  sftp:
+    image: atmoz/sftp:debian
+    container_name: sftp
+    hostname: sftp
+    ports:
+      - "2222:22"
+    command: batch:batchpass:1001:1001:data
+    volumes:
+      - ./batch/data:/home/batch/data
+    restart: unless-stopped
+    networks:
+      - case-study-network
+
+  itvdelab:
+    # Spark/Hadoop/Hive cluster for processing
+    image: itversity/itvdelab
+    container_name: itvdelab
+    hostname: itvdelab
+    ports:
+      - "2223:22" # SSH
+      - "8888:8888"
+      - "9870:9870" # HDFS NameNode
+      - "9864:9864" # HDFS DataNode
+      - "8088:8088" # YARN ResourceManager
+      - "8042:8042" # YARN NodeManager
+      - "4040:4040"
+      - "10000:10000" # HiveServer
+      - "18080:18080" # Spark History
+      - "18081:18081"
+    volumes:
+      - "./Bronze_Layer:/bronze_scripts"
+      - "./Silver_Layer:/silver_scripts"
+      - "./Gold_Layer:/gold_scripts"
+      - "./Spark_job:/spark_jobs"
+      - "./utilities:/utilities"
+    environment:
+      SHELL: /bin/bash
+    depends_on:
+      - cluster_util_db
+    networks:
+      - case-study-network
+
+  airflow:
+    # Airflow orchestration service
+    image: apache/airflow:2.5.1
+    container_name: airflow
+    environment:
+      <<: *sftp-env
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@cluster_util_db:5432/airflow
+      AIRFLOW__CORE__FERNET_KEY: 46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__WEBSERVER__WORKERS: "2"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - ./airflow/init_airflow.sh:/opt/airflow/init_airflow.sh
+      - ./airflow/itvdelab.key:/home/airflow/.ssh/itvdelab.key
+    ports:
+      - "8081:8080"
+    command: [ "bash", "-c", "/opt/airflow/init_airflow.sh" ]
+    depends_on:
+      - cluster_util_db
+    networks:
+      - case-study-network
+
+  cluster_util_db:
+    # Utility database - Airflow metadata db
+    container_name: cluster_util_db
+    image: postgres:13
+    ports:
+      - "6432:5432"
+    volumes:
+      - ./cluster_util_db_scripts:/docker-entrypoint-initdb.d
+      - cluster_util_db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: itversity
+    networks:
+      - case-study-network
+
+networks:
+  case-study-network:
+    name: tidaline-case-study-network
+    driver: bridge
+
+volumes:
+  kafka_kraft_data:
+  postgres_data:
+  cluster_util_db_data:
