@@ -1,8 +1,8 @@
 name: tidaline-case-study
 
 x-sftp-env: &sftp-env
-  SFTP_USER: user
-  SFTP_PASSWORD: pass
+  SFTP_USER: batch
+  SFTP_PASSWORD: batchpass
   SFTP_HOST: sftp
   SFTP_PORT: 22
 
@@ -131,6 +131,9 @@ services:
 
   itvdelab:
     # Spark/Hadoop/Hive cluster for processing
+    build:
+      context: .
+      dockerfile: dockerfile
     image: itversity/itvdelab
     container_name: itvdelab
     hostname: itvdelab
