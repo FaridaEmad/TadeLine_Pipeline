@@ -59,7 +59,17 @@ for LOCAL_PATH in ${FILES}; do
 
     echo "[$(date)] Loaded successfully: ${HDFS_PATH}/${FILENAME}"
 
-    # Remove temporary file
+    # Delete source file from SFTP after successful HDFS upload
+    sshpass -p "${SFTP_PASSWORD}" sftp \
+        -o StrictHostKeyChecking=no \
+        -P "${SFTP_PORT}" \
+        "${SFTP_USER}@${SFTP_HOST}" <<EOF
+rm ${REMOTE_DIR}/${FILENAME}
+EOF
+
+    echo "[$(date)] Deleted from SFTP: ${REMOTE_DIR}/${FILENAME}"
+
+    # Remove temporary local file
     rm -f "${LOCAL_PATH}"
 
 done
