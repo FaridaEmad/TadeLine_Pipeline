@@ -205,7 +205,8 @@ services:
       - "./Gold_Layer:/gold_scripts"
       - "./Spark_job:/spark_jobs"
       - "./utilities:/utilities"
-      - D:\ITI_Graduation\TadeLine_Pipeline\config:/config
+      - "./config:/config"
+      - "./logs:/logs"
     environment:
       SHELL: /bin/bash
     depends_on:
