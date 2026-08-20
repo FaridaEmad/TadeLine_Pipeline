@@ -1,0 +1,769 @@
+# silver_schema.yaml
+
+sources:
+
+  ports:
+    description: "NGA World Port Index"
+    file_pattern: "ports_*.csv"
+
+    validation:
+      required_columns:
+        - oid
+        - world_port_index_number
+        - region_name
+        - main_port_name
+        - alternate_port_name
+        - un_locode
+        - country_code
+        - world_water_body
+        - iho_s130_sea_area
+        - sailing_direction_or_publication
+        - publication_link
+        - standard_nautical_chart
+        - iho_s57_electronic_navigational_chart
+        - iho_s101_electronic_navigational_chart
+        - digital_nautical_chart
+        - tidal_range_m
+        - entrance_width_m
+        - channel_depth_m
+        - anchorage_depth_m
+        - cargo_pier_depth_m
+        - oil_terminal_depth_m
+        - liquified_natural_gas_terminal_depth_m
+        - maximum_vessel_length_m
+        - maximum_vessel_beam_m
+        - maximum_vessel_draft_m
+        - offshore_maximum_vessel_length_m
+        - offshore_maximum_vessel_beam_m
+        - offshore_maximum_vessel_draft_m
+        - harbor_size
+        - harbor_type
+        - harbor_use
+        - shelter_afforded
+        - entrance_restriction_tide
+        - entrance_restriction_heavy_swell
+        - entrance_restriction_ice
+        - entrance_restriction_other
+        - overhead_limits
+        - underkeel_clearance_management_system
+        - good_holding_ground
+        - turning_area
+        - port_security
+        - estimated_time_of_arrival_message
+        - quarantine_pratique
+        - quarantine_sanitation
+        - quarantine_other
+        - traffic_separation_scheme
+        - vessel_traffic_service
+        - first_port_of_entry
+        - us_representative
+        - pilotage_compulsory
+        - pilotage_available
+        - pilotage_local_assistance
+        - pilotage_advisable
+        - tugs_salvage
+        - tugs_assistance
+        - communications_telephone
+        - communications_telefax
+        - communications_radio
+        - communications_radiotelephone
+        - communications_airport
+        - communications_rail
+        - search_and_rescue
+        - navarea
+        - facilities_wharves
+        - facilities_anchorage
+        - facilities_dangerous_cargo_anchorage
+        - facilities_med_mooring
+        - facilities_beach_mooring
+        - facilities_ice_mooring
+        - facilities_ro_ro
+        - facilities_solid_bulk
+        - facilities_liquid_bulk
+        - facilities_container
+        - facilities_breakbulk
+        - facilities_oil_terminal
+        - facilities_lng_terminal
+        - facilities_other
+        - medical_facilities
+        - garbage_disposal
+        - chemical_holding_tank_disposal
+        - degaussing
+        - dirty_ballast_disposal
+        - cranes_fixed
+        - cranes_mobile
+        - cranes_floating
+        - cranes_container
+        - lifts_100_plus_tons
+        - lifts_50_100_tons
+        - lifts_25_49_tons
+        - lifts_0_24_tons
+        - services_longshoremen
+        - services_electricity
+        - services_steam
+        - services_navigation_equipment
+        - services_electrical_repair
+        - services_ice_breaking
+        - services_diving
+        - supplies_provisions
+        - supplies_potable_water
+        - supplies_fuel_oil
+        - supplies_diesel_oil
+        - supplies_aviation_fuel
+        - supplies_deck
+        - supplies_engine
+        - repairs
+        - dry_dock
+        - railway
+        - latitude
+        - longitude
+
+      allow_extra_columns: false
+      allow_missing_columns: false
+      allow_empty_file: false
+
+    columns:
+
+      oid:
+        type: integer
+        nullable: false
+
+      world_port_index_number:
+        type: integer
+        nullable: true
+
+      region_name:
+        type: string
+        nullable: true
+
+      main_port_name:
+        type: string
+        nullable: true
+
+      alternate_port_name:
+        type: string
+        nullable: true
+
+      un_locode:
+        type: string
+        nullable: true
+
+      country_code:
+        type: string
+        nullable: true
+
+      world_water_body:
+        type: string
+        nullable: true
+
+      iho_s130_sea_area:
+        type: string
+        nullable: true
+
+      sailing_direction_or_publication:
+        type: string
+        nullable: true
+
+      publication_link:
+        type: string
+        nullable: true
+
+      standard_nautical_chart:
+        type: string
+        nullable: true
+
+      iho_s57_electronic_navigational_chart:
+        type: string
+        nullable: true
+
+      iho_s101_electronic_navigational_chart:
+        type: string
+        nullable: true
+
+      digital_nautical_chart:
+        type: string
+        nullable: true
+
+      tidal_range_m:
+        type: double
+        nullable: true
+
+      entrance_width_m:
+        type: double
+        nullable: true
+
+      channel_depth_m:
+        type: double
+        nullable: true
+
+      anchorage_depth_m:
+        type: double
+        nullable: true
+
+      cargo_pier_depth_m:
+        type: double
+        nullable: true
+
+      oil_terminal_depth_m:
+        type: double
+        nullable: true
+
+      liquified_natural_gas_terminal_depth_m:
+        type: double
+        nullable: true
+
+      maximum_vessel_length_m:
+        type: double
+        nullable: true
+
+      maximum_vessel_beam_m:
+        type: double
+        nullable: true
+
+      maximum_vessel_draft_m:
+        type: double
+        nullable: true
+
+      offshore_maximum_vessel_length_m:
+        type: double
+        nullable: true
+
+      offshore_maximum_vessel_beam_m:
+        type: double
+        nullable: true
+
+      offshore_maximum_vessel_draft_m:
+        type: double
+        nullable: true
+
+      harbor_size:
+        type: string
+        nullable: true
+
+      harbor_type:
+        type: string
+        nullable: true
+
+      harbor_use:
+        type: string
+        nullable: true
+
+      shelter_afforded:
+        type: string
+        nullable: true
+
+      entrance_restriction_tide:
+        type: string
+        nullable: true
+
+      entrance_restriction_heavy_swell:
+        type: string
+        nullable: true
+
+      entrance_restriction_ice:
+        type: string
+        nullable: true
+
+      entrance_restriction_other:
+        type: string
+        nullable: true
+
+      overhead_limits:
+        type: string
+        nullable: true
+
+      underkeel_clearance_management_system:
+        type: string
+        nullable: true
+
+      good_holding_ground:
+        type: string
+        nullable: true
+
+      turning_area:
+        type: string
+        nullable: true
+
+      port_security:
+        type: string
+        nullable: true
+
+      estimated_time_of_arrival_message:
+        type: string
+        nullable: true
+
+      quarantine_pratique:
+        type: string
+        nullable: true
+
+      quarantine_sanitation:
+        type: string
+        nullable: true
+
+      quarantine_other:
+        type: string
+        nullable: true
+
+      traffic_separation_scheme:
+        type: string
+        nullable: true
+
+      vessel_traffic_service:
+        type: string
+        nullable: true
+
+      first_port_of_entry:
+        type: string
+        nullable: true
+
+      us_representative:
+        type: string
+        nullable: true
+
+      pilotage_compulsory:
+        type: string
+        nullable: true
+
+      pilotage_available:
+        type: string
+        nullable: true
+
+      pilotage_local_assistance:
+        type: string
+        nullable: true
+
+      pilotage_advisable:
+        type: string
+        nullable: true
+
+      tugs_salvage:
+        type: string
+        nullable: true
+
+      tugs_assistance:
+        type: string
+        nullable: true
+
+      communications_telephone:
+        type: string
+        nullable: true
+
+      communications_telefax:
+        type: string
+        nullable: true
+
+      communications_radio:
+        type: string
+        nullable: true
+
+      communications_radiotelephone:
+        type: string
+        nullable: true
+
+      communications_airport:
+        type: string
+        nullable: true
+
+      communications_rail:
+        type: string
+        nullable: true
+
+      search_and_rescue:
+        type: string
+        nullable: true
+
+      navarea:
+        type: string
+        nullable: true
+
+      facilities_wharves:
+        type: string
+        nullable: true
+
+      facilities_anchorage:
+        type: string
+        nullable: true
+
+      facilities_dangerous_cargo_anchorage:
+        type: string
+        nullable: true
+
+      facilities_med_mooring:
+        type: string
+        nullable: true
+
+      facilities_beach_mooring:
+        type: string
+        nullable: true
+
+      facilities_ice_mooring:
+        type: string
+        nullable: true
+
+      facilities_ro_ro:
+        type: string
+        nullable: true
+
+      facilities_solid_bulk:
+        type: string
+        nullable: true
+
+      facilities_liquid_bulk:
+        type: string
+        nullable: true
+
+      facilities_container:
+        type: string
+        nullable: true
+
+      facilities_breakbulk:
+        type: string
+        nullable: true
+
+      facilities_oil_terminal:
+        type: string
+        nullable: true
+
+      facilities_lng_terminal:
+        type: string
+        nullable: true
+
+      facilities_other:
+        type: string
+        nullable: true
+
+      medical_facilities:
+        type: string
+        nullable: true
+
+      garbage_disposal:
+        type: string
+        nullable: true
+
+      chemical_holding_tank_disposal:
+        type: string
+        nullable: true
+
+      degaussing:
+        type: string
+        nullable: true
+
+      dirty_ballast_disposal:
+        type: string
+        nullable: true
+
+      cranes_fixed:
+        type: string
+        nullable: true
+
+      cranes_mobile:
+        type: string
+        nullable: true
+
+      cranes_floating:
+        type: string
+        nullable: true
+
+      cranes_container:
+        type: string
+        nullable: true
+
+      lifts_100_plus_tons:
+        type: string
+        nullable: true
+
+      lifts_50_100_tons:
+        type: string
+        nullable: true
+
+      lifts_25_49_tons:
+        type: string
+        nullable: true
+
+      lifts_0_24_tons:
+        type: string
+        nullable: true
+
+      services_longshoremen:
+        type: string
+        nullable: true
+
+      services_electricity:
+        type: string
+        nullable: true
+
+      services_steam:
+        type: string
+        nullable: true
+
+      services_navigation_equipment:
+        type: string
+        nullable: true
+
+      services_electrical_repair:
+        type: string
+        nullable: true
+
+      services_ice_breaking:
+        type: string
+        nullable: true
+
+      services_diving:
+        type: string
+        nullable: true
+
+      supplies_provisions:
+        type: string
+        nullable: true
+
+      supplies_potable_water:
+        type: string
+        nullable: true
+
+      supplies_fuel_oil:
+        type: string
+        nullable: true
+
+      supplies_diesel_oil:
+        type: string
+        nullable: true
+
+      supplies_aviation_fuel:
+        type: string
+        nullable: true
+
+      supplies_deck:
+        type: string
+        nullable: true
+
+      supplies_engine:
+        type: string
+        nullable: true
+
+      repairs:
+        type: string
+        nullable: true
+
+      dry_dock:
+        type: string
+        nullable: true
+
+      railway:
+        type: string
+        nullable: true
+
+      latitude:
+        type: double
+        nullable: true
+
+      longitude:
+        type: double
+        nullable: true
+
+    partition_columns:
+      snapshot_year: integer
+      snapshot_month: integer
+
+
+  vessels:
+    description: "Vessel tracking/report data"
+    file_pattern: "vessels_*.csv"
+
+    validation:
+      required_columns:
+        - name
+        - type
+        - year_built
+        - gross_tonnage
+        - deadweight
+        - length_m
+        - beam_m
+        - detail_link
+        - departure_date
+        - last_port_country
+        - last_port_name
+        - arrival_date
+        - destination_port_country
+        - destination_port_name
+        - destination_port_lat
+        - destination_port_lon
+        - reported_status
+        - report_date
+
+      allow_extra_columns: false
+      allow_missing_columns: false
+      allow_empty_file: false
+
+    columns:
+
+      name:
+        type: string
+        nullable: true
+
+      type:
+        type: string
+        nullable: true
+
+      year_built:
+        type: integer
+        nullable: true
+
+      gross_tonnage:
+        type: long
+        nullable: true
+
+      deadweight:
+        type: long
+        nullable: true
+
+      length_m:
+        type: double
+        nullable: true
+
+      beam_m:
+        type: double
+        nullable: true
+
+      detail_link:
+        type: string
+        nullable: true
+
+      departure_date:
+        type: timestamp
+        format: "%Y-%m-%d %H:%M:%S"
+        nullable: true
+
+      last_port_country:
+        type: string
+        nullable: true
+
+      last_port_name:
+        type: string
+        nullable: true
+
+      arrival_date:
+        type: timestamp
+        format: "%Y-%m-%d %H:%M:%S"
+        nullable: true
+
+      destination_port_country:
+        type: string
+        nullable: true
+
+      destination_port_name:
+        type: string
+        nullable: true
+
+      destination_port_lat:
+        type: double
+        nullable: true
+
+      destination_port_lon:
+        type: double
+        nullable: true
+
+      reported_status:
+        type: string
+        nullable: true
+
+      report_date:
+        type: timestamp
+        format: "%Y-%m-%d %H:%M:%S"
+        nullable: false
+
+    partition_columns:
+      snapshot_year: integer
+      snapshot_month: integer
+      snapshot_day: integer
+
+
+  earthquakes:
+    description: "Earthquake event data"
+    file_pattern: "earthquakes_*.csv"
+
+    validation:
+      required_columns:
+        - unid
+        - source_id
+        - source_catalog
+        - lastupdate
+        - time
+        - flynn_region
+        - lat
+        - lon
+        - depth
+        - evtype
+        - auth
+        - mag
+        - magtype
+        - action
+        - received_at
+
+      allow_extra_columns: false
+      allow_missing_columns: false
+      allow_empty_file: false
+
+    columns:
+
+      unid:
+        type: string
+        nullable: false
+
+      source_id:
+        type: string
+        nullable: true
+
+      source_catalog:
+        type: string
+        nullable: true
+
+      lastupdate:
+        type: timestamp
+        nullable: true
+
+      time:
+        type: timestamp
+        nullable: false
+
+      flynn_region:
+        type: string
+        nullable: true
+
+      lat:
+        type: double
+        nullable: false
+
+      lon:
+        type: double
+        nullable: false
+
+      depth:
+        type: double
+        nullable: true
+
+      evtype:
+        type: string
+        nullable: true
+
+      auth:
+        type: string
+        nullable: true
+
+      mag:
+        type: double
+        nullable: true
+
+      magtype:
+        type: string
+        nullable: true
+
+      action:
+        type: string
+        nullable: true
+
+      received_at:
+        type: timestamp
+        nullable: false
+
+    partition_columns:
+      event_date: date

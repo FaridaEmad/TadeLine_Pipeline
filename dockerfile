@@ -10,8 +10,11 @@ RUN apt-get update && \
 # 2. Create python symlink
 RUN ln -s /usr/bin/python3 /usr/bin/python
 
-# 3. Install PySpark and dotenv
-RUN pip3 install --no-cache-dir pyspark python-dotenv
+# 3. Install Python dependencies
+RUN pip3 install --no-cache-dir \
+    pyspark \
+    python-dotenv \
+    PyYAML
 
 # 4. Setup environment variables
 RUN echo 'export PYSPARK_PYTHON=python' >> /home/itversity/.bashrc && \
@@ -24,4 +27,5 @@ RUN mkdir -p /spark_jobs && \
 
 # Switch back to itversity user
 USER itversity
+
 WORKDIR /spark_jobs
