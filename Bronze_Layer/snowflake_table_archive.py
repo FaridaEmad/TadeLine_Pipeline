@@ -188,17 +188,19 @@ logger.info("[SOURCE] Reading new earthquake records from Snowflake")
 query = f"""
 SELECT
     UNID AS unid,
-    SOURCE_ID AS source_id,
+    SOURCE_ID,
     TIME AS event_timestamp,
+    FLYNN_REGION,
     LAT AS latitude,
     LON AS longitude,
     DEPTH AS depth,
     MAG AS magnitude,
     MAGTYPE AS magnitude_type,
     EVTYPE AS event_type,
-    SOURCE_CATALOG AS source_catalog,
+    SOURCE_CATALOG,
     AUTH AS authority,
-    RECEIVED_AT AS received_at,
+    Action,
+    RECEIVED_AT,
     EVENT_DATE AS ingestion_date
 FROM {SOURCE_TABLE}
 WHERE ingestion_date > '{last_watermark}'
