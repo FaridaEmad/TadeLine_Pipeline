@@ -489,32 +489,122 @@ This can be used to inspect the generated Port Dimension and verify its schema a
 
 # Hive Integration
 
-The Gold Port Dimension is stored in HDFS as **Parquet**.
+The Gold Port Dimension is stored in HDFS as Parquet files.
 
-It can be exposed through Hive using the Gold DDL:
+A Hive external table is created on top of these Parquet files using the DDL file:
 
-```text
-Gold_Layer/gold_ddl.sql
+`Gold_Layer/Hive_scripts/gold_ddl.sql`
+
+## 1. Open Hive
+
+Enter the Hadoop container:
+
+```bash
+docker exec -it itvdelab bash
 ```
 
-Hive provides the SQL access layer for downstream analytical queries and BI consumption.
+Start the Hive CLI:
+
+```bash
+hive
+```
+
+## 2. Create the Gold Database and Table
+
+Inside the Hive CLI, execute:
+
+```sql
+SOURCE /gold_scripts/Hive_scripts/gold_ddl.sql;
+```
+
+The DDL creates:
+
+* **Database:** `gold`
+* **Table:** `gold.ports`
+
+The table points directly to the Gold Parquet files stored in:
+
+```text
+/gold_layer/ports
+```
+
+## 3. Verify the Table
+
+Check that the database exists:
+
+```sql
+SHOW DATABASES;
+```
+
+Select the Gold database:
+
+```sql
+USE gold;
+```
+
+Check the available tables:
+
+```sql
+SHOW TABLES;
+```
+
+Expected result:
+
+```text
+ports
+```
+
+## 4. Verify the Schema
+
+Inspect the table schema:
+
+```sql
+DESCRIBE gold.ports;
+```
+
+## 5. Query the Gold Data
+
+Test the table by retrieving a sample of records:
+
+```sql
+SELECT *
+FROM gold.ports
+LIMIT 10;
+```
+
+Since `gold.ports` is an **EXTERNAL TABLE**, Hive reads the Parquet files directly from HDFS:
+
+```text
+/gold_layer/ports
+```
+
+The underlying Parquet files remain stored in HDFS and are not managed by Hive. Therefore, dropping the Hive table does not delete the underlying data from HDFS.
 
 ---
 
-# Power BI
+## Hive → Power BI
 
-The Gold Port Dimension is designed to be consumed by **Power BI** through the Hive/SQL access layer.
+The Gold data can be exposed to downstream analytical and BI tools through the Hive/SQL connectivity layer.
 
-The Gold Layer provides business-ready attributes and derived metrics that can be used for:
+The logical flow is:
 
-* Port analysis
-* Port capability analysis
-* Supplies availability analysis
-* Communication availability analysis
-* Geographical analysis
-* Dashboarding and reporting
+```text
+HDFS
+/gold_layer/ports
+       |
+       v
+Hive External Table
+gold.ports
+       |
+       v
+SQL Queries
+       |
+       v
+Power BI
+```
 
----
+This allows the Gold Port Dimension to be queried using SQL and consumed by BI tools for analytics and reporting.
+
 
 # Logs
 
