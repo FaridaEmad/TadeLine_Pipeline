@@ -223,18 +223,8 @@ Make sure that the Hadoop/HDFS and Spark environments are running before executi
 From the project environment:
 
 ```bash
-spark-submit \
-  --master yarn \
-  Silver_Layer/Spark_job/ports_to_silver.py
+spark-submit /silver_scripts/Spark_job/ports_to_silver.py
 ```
-
-If the script is deployed to the Hadoop environment:
-
-```bash
-spark-submit /silver_scripts/ports_to_silver.py
-```
-
-> Adjust the script path according to the deployment environment.
 
 ---
 
