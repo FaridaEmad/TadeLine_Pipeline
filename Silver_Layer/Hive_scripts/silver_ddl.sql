@@ -1,7 +1,8 @@
 CREATE DATABASE IF NOT EXISTS silver;
+
 USE silver;
 
-CREATE TABLE IF NOT EXISTS silver.ports (
+CREATE EXTERNAL TABLE IF NOT EXISTS silver.ports (
     oid INT,
     world_port_index_number INT,
     region_name STRING,
@@ -136,67 +137,10 @@ CREATE TABLE IF NOT EXISTS silver.ports (
 )
 PARTITIONED BY (
     snapshot_year INT,
-    snapshot_month INT,
+    snapshot_month INT
 )
-STORED AS PARQUET;
+STORED AS PARQUET
+LOCATION '/silver_layer/ports';
 
-CREATE TABLE IF NOT EXISTS silver.vessels (
-    name STRING,
-    type STRING,
-
-    year_built INT,
-    gross_tonnage BIGINT,
-    deadweight BIGINT,
-    length_m DOUBLE,
-    beam_m DOUBLE,
-
-    detail_link STRING,
-
-    departure_date TIMESTAMP,
-    last_port_country STRING,
-    last_port_name STRING,
-
-    arrival_date TIMESTAMP,
-
-    destination_port_country STRING,
-    destination_port_name STRING,
-    destination_port_lat DOUBLE,
-    destination_port_lon DOUBLE,
-
-    reported_status STRING,
-    report_date TIMESTAMP
-)
-PARTITIONED BY (
-    snapshot_year INT,
-    snapshot_month INT,
-    snapshot_day INT
-)
-STORED AS PARQUET;
-
-CREATE TABLE IF NOT EXISTS silver.earthquakes (
-    unid STRING,
-    source_id STRING,
-    source_catalog STRING,
-
-    lastupdate TIMESTAMP,
-    time TIMESTAMP,
-
-    flynn_region STRING,
-
-    lat DOUBLE,
-    lon DOUBLE,
-    depth DOUBLE,
-
-    evtype STRING,
-    auth STRING,
-
-    mag DOUBLE,
-    magtype STRING,
-    action STRING,
-
-    received_at TIMESTAMP
-)
-PARTITIONED BY (
-    event_date DATE
-)
-STORED AS PARQUET;
+-- Register existing partitions in Hive Metastore
+MSCK REPAIR TABLE silver.ports;
