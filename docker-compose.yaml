@@ -205,6 +205,8 @@ services:
       - "./Gold_Layer:/gold_scripts"
       - "./Spark_job:/spark_jobs"
       - "./utilities:/utilities"
+      - "./config:/config"
+      - "./logs:/logs"
     environment:
       SHELL: /bin/bash
     depends_on:
