@@ -5,6 +5,7 @@ __pycache__/
 
 # Airflow
 /airflow/logs/
+/airflow/itvdelab.key
 
 # Logs
 *.log
