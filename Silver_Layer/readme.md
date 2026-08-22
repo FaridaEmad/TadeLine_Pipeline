@@ -270,56 +270,133 @@ The logs provide information about:
 
 ---
 
-## Hive / SQL Integration
+## Hive Integration
 
-The Silver dataset is stored in HDFS as **Parquet** and can be exposed through Hive for downstream processing and querying.
+The Silver dataset is stored in HDFS as Parquet files.
 
-The Silver Layer is not intended to be the final business-facing layer.
+A Hive external table is created on top of these Parquet files using the DDL file:
 
-Its main responsibility is to provide **clean, standardized, validated, and trusted data** for the Gold Layer.
+```text
+Silver_Layer/silver_ddl.sql
+```
+
+## 1. Open Hive
+
+Enter the Hadoop container:
+
+```bash
+docker exec -it itvdelab bash
+```
+
+Start the Hive CLI:
+
+```bash
+hive
+```
+
+## 2. Create the Silver Database and Table
+
+Inside the Hive CLI, execute:
+
+```sql
+SOURCE /silver_scripts/Hive_scripts/silver_ddl.sql;
+```
+
+The DDL creates:
+
+* **Database:** `silver`
+* **Table:** `silver.ports`
+
+The table points directly to the Silver Parquet files stored in:
+
+```text
+/silver_layer/ports
+```
+
+## 3. Verify the Table
+
+Check that the database exists:
+
+```sql
+SHOW DATABASES;
+```
+
+Select the Silver database:
+
+```sql
+USE silver;
+```
+
+Check the available tables:
+
+```sql
+SHOW TABLES;
+```
+
+Expected result:
+
+```text
+ports
+```
+
+## 4. Verify the Schema
+
+Inspect the Silver table schema:
+
+```sql
+DESCRIBE silver.ports;
+```
+
+## 5. Query the Silver Data
+
+Test the table by retrieving a sample of records:
+
+```sql
+SELECT *
+FROM silver.ports
+LIMIT 10;
+```
+
+Since `silver.ports` is an **EXTERNAL TABLE**, Hive reads the Parquet files directly from HDFS:
+
+```text
+/silver_layer/ports
+```
+
+The underlying Parquet files remain stored in HDFS and are not managed by Hive. Dropping the Hive table does not delete the underlying Silver data from HDFS.
 
 ---
 
-## Project Files
+## Silver → Gold
 
-| File                           | Description                                |
-| ------------------------------ | ------------------------------------------ |
-| `Spark_job/ports_to_silver.py` | Main Silver Spark ETL job                  |
-| `silver_ddl.sql`               | Silver table/database DDL                  |
-| `../config/silver_schema.yaml` | Silver schema and validation configuration |
-| `Columns_Definitions.docx`     | Silver column definitions                  |
-| `logs/silver_ports_etl.log`    | Silver ETL execution log                   |
+The Silver Hive table provides a SQL-accessible interface to the trusted Silver data.
 
----
-
-## Data Flow
+The overall flow is:
 
 ```text
 Bronze Layer
-    |
-    | Raw Ports Data
-    v
+       |
+       v
 HDFS
 /bronze_layer/ports
-    |
-    v
+       |
+       v
 Silver Spark ETL
-    |
-    | Cleaning
-    | Standardization
-    | Type Casting
-    | Validation
-    | Deduplication
-    v
+       |
+       v
 HDFS
 /silver_layer/ports
-    |
-    | Trusted & Standardized Data
-    v
+       |
+       v
+Hive External Table
+silver.ports
+       |
+       v
 Gold Layer
 ```
 
----
+The Silver Layer provides the **cleaned, standardized, validated, and trusted data** required by the Gold Layer for downstream business transformations and dimensional modeling.
+
 
 ## Layer Responsibility
 
