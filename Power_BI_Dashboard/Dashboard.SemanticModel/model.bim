@@ -1,0 +1,2350 @@
+{
+  "compatibilityLevel": 1550,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"DIM_DATE\",\"DIM_TIME\",\"EARTHQUAKES\",\"DIM_PORT\",\"FACT_EARTHQUAKE_PORT_RISK\",\"Maps\",\"MapHelperTable\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.128.952.0 (24.04)"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"DevMode\"]"
+      }
+    ],
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "relationships": [
+      {
+        "name": "9437d78d-61f7-4c47-9e8b-2e231bbe851b",
+        "fromColumn": "TIME_DATE_KEY",
+        "fromTable": "EARTHQUAKES",
+        "toColumn": "DATE_KEY",
+        "toTable": "DIM_DATE"
+      },
+      {
+        "name": "2ef44139-b697-460b-bfdf-bee4352393eb",
+        "fromColumn": "TIME_TIME_KEY",
+        "fromTable": "EARTHQUAKES",
+        "toColumn": "TIME_KEY",
+        "toTable": "DIM_TIME"
+      },
+      {
+        "name": "e27a2655-6913-40d6-b211-d313a87c036c",
+        "fromColumn": "PORT_KEY",
+        "fromTable": "FACT_EARTHQUAKE_PORT_RISK",
+        "toColumn": "PORT_KEY",
+        "toTable": "DIM_PORT"
+      },
+      {
+        "name": "1a66582f-dce7-4def-b701-1193d9f5d7f9",
+        "crossFilteringBehavior": "bothDirections",
+        "fromColumn": "UNID",
+        "fromTable": "EARTHQUAKES",
+        "toCardinality": "many",
+        "toColumn": "EARTHQUAKE_KEY",
+        "toTable": "FACT_EARTHQUAKE_PORT_RISK"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "DIM_DATE",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "DATE_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "03290ea3-b070-4df2-bfc8-a9ba56dd0c4c",
+            "sourceColumn": "DATE_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FULL_DATE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "37ee92fb-faec-4af4-a3a3-934df84dd66d",
+            "sourceColumn": "FULL_DATE",
+            "sourceProviderType": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DAY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "7c7d46ba-e758-4034-a8fd-f6525018cbcb",
+            "sourceColumn": "DAY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MONTH",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "2e223e92-0128-4757-b6df-9c88e3a6ff97",
+            "sourceColumn": "MONTH",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MONTH_NAME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3c198297-cf8a-4902-a904-a2ebfc8e7295",
+            "sourceColumn": "MONTH_NAME",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "QUARTER",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "4fc08dbd-d67e-48f8-a84a-76a6e8ad6ea9",
+            "sourceColumn": "QUARTER",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "YEAR",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "a81e39e3-15c9-400c-9c46-b3c14cea57ac",
+            "sourceColumn": "YEAR",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "WEEK_OF_YEAR",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "5f708f25-ba8f-4a96-992b-385ed7c4bbfb",
+            "sourceColumn": "WEEK_OF_YEAR",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DAY_OF_WEEK",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "a5a6f4f7-8a08-45ba-b4f9-b3d8cfafb606",
+            "sourceColumn": "DAY_OF_WEEK",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DAY_NAME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cc327e6e-ae1a-444d-9d3d-e343198cf8a1",
+            "sourceColumn": "DAY_NAME",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "IS_WEEKEND",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "boolean",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "lineageTag": "f45f0860-37d4-460a-963f-fc21cd6792b6",
+            "sourceColumn": "IS_WEEKEND",
+            "sourceProviderType": "bit",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "4190a158-2169-4be1-bbc5-7ee978e28711",
+        "partitions": [
+          {
+            "name": "DIM_DATE",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Snowflake.Databases(\"qn44692.eu-central-2.aws.snowflakecomputing.com\",\"STREAMING_WH\"),",
+                "    STREAMING_DB_Database = Source{[Name=\"STREAMING_DB\",Kind=\"Database\"]}[Data],",
+                "    KAFKA_Schema = STREAMING_DB_Database{[Name=\"KAFKA\",Kind=\"Schema\"]}[Data],",
+                "    DIM_DATE_Table = KAFKA_Schema{[Name=\"DIM_DATE\",Kind=\"Table\"]}[Data]",
+                "in",
+                "    DIM_DATE_Table"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_TIME",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "TIME_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "21167a6f-d133-4bf9-a0b6-416ee9e364fa",
+            "sourceColumn": "TIME_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "HOUR",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "976bbe4c-172c-449f-b9bd-e48f97bda922",
+            "sourceColumn": "HOUR",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MINUTE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "8231cb6a-e608-4e15-99ed-dadab36a034d",
+            "sourceColumn": "MINUTE",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SECOND",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "069d493f-d8b7-4779-9c80-380cf33e2bd5",
+            "sourceColumn": "SECOND",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "HOUR_MINUTE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4f91136b-404c-472b-8e42-71bdd3167e5b",
+            "sourceColumn": "HOUR_MINUTE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "cb7136e3-766f-4875-892b-23a096c7b774",
+        "partitions": [
+          {
+            "name": "DIM_TIME",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Snowflake.Databases(\"qn44692.eu-central-2.aws.snowflakecomputing.com\",\"STREAMING_WH\"),",
+                "    STREAMING_DB_Database = Source{[Name=\"STREAMING_DB\",Kind=\"Database\"]}[Data],",
+                "    KAFKA_Schema = STREAMING_DB_Database{[Name=\"KAFKA\",Kind=\"Schema\"]}[Data],",
+                "    DIM_TIME_Table = KAFKA_Schema{[Name=\"DIM_TIME\",Kind=\"Table\"]}[Data]",
+                "in",
+                "    DIM_TIME_Table"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "EARTHQUAKES",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "UNID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "635ee30a-9042-4862-8d1f-5d6b4a5df22b",
+            "sourceColumn": "UNID",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SOURCE_ID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "c3cefdc7-9576-4fb7-bd52-b0e35471eca6",
+            "sourceColumn": "SOURCE_ID",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SOURCE_CATALOG",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "6277fbf2-4b13-4cb4-9beb-7cdcae351715",
+            "sourceColumn": "SOURCE_CATALOG",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LASTUPDATE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "111d4605-c584-42af-8b07-7492b1a6e789",
+            "sourceColumn": "LASTUPDATE",
+            "sourceProviderType": "datetime2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TIME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "4e158599-16da-4a73-a148-6434ff727fc7",
+            "sourceColumn": "TIME",
+            "sourceProviderType": "datetime2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FLYNN_REGION",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "36fdfa79-e17c-48e1-801b-94aaf8a3cf93",
+            "sourceColumn": "FLYNN_REGION",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LAT",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "d1cb74a2-bb4d-440d-92e6-645df44e7d24",
+            "sourceColumn": "LAT",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "LON",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "3e5185df-792e-4aa9-a339-9ff69a9abe68",
+            "sourceColumn": "LON",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DEPTH",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "f9cb5d0b-068c-4158-967a-f72c11db0626",
+            "sourceColumn": "DEPTH",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "EVTYPE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b9665796-107e-4a54-9541-90d991517cfd",
+            "sourceColumn": "EVTYPE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AUTH",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d96f4d42-10e7-4014-8ccb-227f51e7e986",
+            "sourceColumn": "AUTH",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MAG",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "80829d8e-b497-4e32-b668-aba9e6794454",
+            "sourceColumn": "MAG",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "MAGTYPE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b8368291-af9c-404a-9110-c3b32b395aef",
+            "sourceColumn": "MAGTYPE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ACTION",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a9fff106-7694-4962-a861-e63a505451b6",
+            "sourceColumn": "ACTION",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RECEIVED_AT",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "fc7a7875-039a-47d9-9321-3d299da35665",
+            "sourceColumn": "RECEIVED_AT",
+            "sourceProviderType": "datetime2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EVENT_DATE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "098c2bf5-2b17-4c32-906d-955ce2252a78",
+            "sourceColumn": "EVENT_DATE",
+            "sourceProviderType": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LAST_UPDATE_DATE_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "03fc2f9e-1340-4ff7-8fb2-053e76786bdb",
+            "sourceColumn": "LAST_UPDATE_DATE_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "LAST_UPDATE_TIME_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "3204b23a-0aae-4a26-ab5b-4284fd42023a",
+            "sourceColumn": "LAST_UPDATE_TIME_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "TIME_DATE_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "1dbfbc4a-e336-484a-be68-2ef6d1122597",
+            "sourceColumn": "TIME_DATE_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TIME_TIME_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "63d0b355-8b6e-40b9-9393-0a204b4dbcf8",
+            "sourceColumn": "TIME_TIME_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EVENT_DATE_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "f871f3f1-2ec2-4c93-978f-af9395fa10f1",
+            "sourceColumn": "EVENT_DATE_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "27e7b4f2-1c76-4c31-bae5-c3cfea4b509b",
+        "measures": [
+          {
+            "name": "Total_Earthquakes",
+            "expression": "DISTINCTCOUNT(EARTHQUAKES[UNID])",
+            "formatString": "0",
+            "lineageTag": "279f3930-3a73-4638-9296-4d5b96a668be"
+          },
+          {
+            "name": "Earthquakes Last 24H",
+            "expression": [
+              "",
+              "VAR LatestEarthquakeTime =",
+              "    MAX(EARTHQUAKES[TIME])",
+              "RETURN",
+              "CALCULATE(",
+              "    DISTINCTCOUNT(EARTHQUAKES[UNID]),",
+              "    FILTER(",
+              "        ALL(EARTHQUAKES),",
+              "        EARTHQUAKES[TIME] >= LatestEarthquakeTime - 1",
+              "            &&",
+              "        EARTHQUAKES[TIME] <= LatestEarthquakeTime",
+              "    )",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "227d7526-21c2-47c3-9d5f-8f186fdb068f"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "EARTHQUAKES",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Value.NativeQuery(Snowflake.Databases(\"qn44692.eu-central-2.aws.snowflakecomputing.com\",\"STREAMING_WH\"){[Name=\"STREAMING_DB\"]}[Data], \"SELECT#(lf)    UNID,#(lf)    SOURCE_ID,#(lf)    SOURCE_CATALOG,#(lf)    LASTUPDATE,#(lf)    TIME,#(lf)    FLYNN_REGION,#(lf)    LAT,#(lf)    LON,#(lf)    DEPTH,#(lf)    EVTYPE,#(lf)    AUTH,#(lf)    MAG,#(lf)    MAGTYPE,#(lf)    ACTION,#(lf)    RECEIVED_AT,#(lf)    EVENT_DATE,#(lf)#(lf)    TO_NUMBER(TO_CHAR(LASTUPDATE, 'YYYYMMDD'))#(lf)        AS LAST_UPDATE_DATE_KEY,#(lf)#(lf)    TO_NUMBER(TO_CHAR(LASTUPDATE, 'HH24MISS'))#(lf)        AS LAST_UPDATE_TIME_KEY,#(lf)#(lf)    TO_NUMBER(TO_CHAR(TIME, 'YYYYMMDD'))#(lf)        AS TIME_DATE_KEY,#(lf)#(lf)    TO_NUMBER(TO_CHAR(TIME, 'HH24MISS'))#(lf)        AS TIME_TIME_KEY,#(lf)#(lf)    TO_NUMBER(TO_CHAR(EVENT_DATE, 'YYYYMMDD'))#(lf)        AS EVENT_DATE_KEY#(lf)#(lf)FROM STREAMING_DB.KAFKA.earthquakes\", null, [EnableFolding=true]),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"TIME\", type datetime}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "DIM_PORT",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "PORT_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "437e352a-29d5-461b-bb01-9ae5ca941a4d",
+            "sourceColumn": "PORT_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "5302c32b-a612-4fcb-99a5-52f4e6514f56",
+            "sourceColumn": "OID",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "WORLD_PORT_INDEX_NUMBER",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "5160d442-96de-4ff6-8bce-871161f44c25",
+            "sourceColumn": "WORLD_PORT_INDEX_NUMBER",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MAIN_PORT_NAME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "78d74e5c-f8d5-486c-a81d-0eabda7d20ba",
+            "sourceColumn": "MAIN_PORT_NAME",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ALTERNATE_PORT_NAME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8141fe81-2839-427a-892f-08a66294cd28",
+            "sourceColumn": "ALTERNATE_PORT_NAME",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "UN_LOCODE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7bb74e83-6e02-4646-9b9a-35e2ab6e42f7",
+            "sourceColumn": "UN_LOCODE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COUNTRY_CODE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "25db0554-479b-474b-8ba0-88088ce1c3dd",
+            "sourceColumn": "COUNTRY_CODE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "REGION_NAME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e5be402e-9422-4ade-a32e-e0ef4dbce770",
+            "sourceColumn": "REGION_NAME",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "WORLD_WATER_BODY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ef1d71a9-a0eb-479e-bb04-d8e4ffdfc3b2",
+            "sourceColumn": "WORLD_WATER_BODY",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "IHO_S130_SEA_AREA",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8574db11-9e1d-47d6-a38f-b536fa309e02",
+            "sourceColumn": "IHO_S130_SEA_AREA",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LATITUDE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "66c55f34-6c4e-40c8-87ad-6408ccc27a76",
+            "sourceColumn": "LATITUDE",
+            "sourceProviderType": "double",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LONGITUDE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "7611ff7a-d336-41d6-affc-4d3c5e0cd8fb",
+            "sourceColumn": "LONGITUDE",
+            "sourceProviderType": "double",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "HARBOR_SIZE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "a23d728f-13a5-49e0-9bae-bc5075626f0c",
+            "sourceColumn": "HARBOR_SIZE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "HARBOR_TYPE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8cd82fa1-75e8-48ca-8a8d-11528667b4b1",
+            "sourceColumn": "HARBOR_TYPE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "HARBOR_USE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "446e38c5-786e-474d-8e75-b10de4d81f7e",
+            "sourceColumn": "HARBOR_USE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SHELTER_AFFORDED",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4efab140-066b-4cbc-97d7-d40da32331e8",
+            "sourceColumn": "SHELTER_AFFORDED",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CHANNEL_DEPTH_M",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "99ecba53-be6a-4b97-b25c-e9d5a3b03200",
+            "sourceColumn": "CHANNEL_DEPTH_M",
+            "sourceProviderType": "double",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ANCHORAGE_DEPTH_M",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "d1d9747d-0a19-4b0e-b2b6-6f80c35a7dd2",
+            "sourceColumn": "ANCHORAGE_DEPTH_M",
+            "sourceProviderType": "double",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CARGO_PIER_DEPTH_M",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "6731ed7f-31ba-4700-a7fb-10a7253fd5a0",
+            "sourceColumn": "CARGO_PIER_DEPTH_M",
+            "sourceProviderType": "double",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OIL_TERMINAL_DEPTH_M",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "3ee8aa05-61e8-47a3-a845-08e81d67a8f5",
+            "sourceColumn": "OIL_TERMINAL_DEPTH_M",
+            "sourceProviderType": "double",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LNG_TERMINAL_DEPTH_M",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "e92481b8-705b-4372-a3e4-f69cc46780de",
+            "sourceColumn": "LNG_TERMINAL_DEPTH_M",
+            "sourceProviderType": "double",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MAXIMUM_VESSEL_LENGTH_M",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "7ebbfe2a-3e4e-49dd-83c4-a1c06bcfaacb",
+            "sourceColumn": "MAXIMUM_VESSEL_LENGTH_M",
+            "sourceProviderType": "double",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MAXIMUM_VESSEL_BEAM_M",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "cb920bac-61f7-4b45-b854-a4c77bc722b2",
+            "sourceColumn": "MAXIMUM_VESSEL_BEAM_M",
+            "sourceProviderType": "double",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MAXIMUM_VESSEL_DRAFT_M",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "8c50dcd1-0623-4678-8f8e-406238c7deb0",
+            "sourceColumn": "MAXIMUM_VESSEL_DRAFT_M",
+            "sourceProviderType": "double",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PORT_SECURITY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "61610e00-0b22-4e0a-8060-eb6a846173ee",
+            "sourceColumn": "PORT_SECURITY",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SUPPLIES_PROVISIONS",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7cc11f54-9a66-4fdd-a8ee-d779eec5c79e",
+            "sourceColumn": "SUPPLIES_PROVISIONS",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SUPPLIES_POTABLE_WATER",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "175114ea-1eef-4055-943c-184876578ce2",
+            "sourceColumn": "SUPPLIES_POTABLE_WATER",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SUPPLIES_FUEL_OIL",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0715d7a4-4569-4fa0-b9ed-81d7b8448436",
+            "sourceColumn": "SUPPLIES_FUEL_OIL",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SUPPLIES_DIESEL_OIL",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "39dac9d6-9870-4c1d-aa04-7251a02e54a8",
+            "sourceColumn": "SUPPLIES_DIESEL_OIL",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SUPPLIES_AVIATION_FUEL",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "bfa8d85a-0d59-45c7-a48d-f4181ee2b2c5",
+            "sourceColumn": "SUPPLIES_AVIATION_FUEL",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SUPPLIES_DECK",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f5bcfe67-1bad-4ca6-8e32-05f5d674abca",
+            "sourceColumn": "SUPPLIES_DECK",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SUPPLIES_ENGINE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "00f9b800-ff64-45d7-ac0c-25dd86aa590f",
+            "sourceColumn": "SUPPLIES_ENGINE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COMMUNICATIONS_TELEPHONE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "03c60cf0-bd15-490c-a309-6f0111088d7d",
+            "sourceColumn": "COMMUNICATIONS_TELEPHONE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COMMUNICATIONS_TELEFAX",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ddedc811-8da3-4c31-aa1c-f0f6e2feccf9",
+            "sourceColumn": "COMMUNICATIONS_TELEFAX",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COMMUNICATIONS_RADIO",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0297c526-a551-49f0-ae62-3905f14f8062",
+            "sourceColumn": "COMMUNICATIONS_RADIO",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COMMUNICATIONS_RADIOTELEPHONE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "59181d97-6db8-4d78-a3f9-385f577af586",
+            "sourceColumn": "COMMUNICATIONS_RADIOTELEPHONE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COMMUNICATIONS_AIRPORT",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "86563d20-705d-46f5-adb3-96adef4101ac",
+            "sourceColumn": "COMMUNICATIONS_AIRPORT",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COMMUNICATIONS_RAIL",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ecdbda95-673e-4225-92f3-297ed9e64df0",
+            "sourceColumn": "COMMUNICATIONS_RAIL",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SUPPLIES_RATE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "6573f938-49e3-4dc6-821b-57b05a7f6c8f",
+            "sourceColumn": "SUPPLIES_RATE",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SUPPLIES_RATE_CLASSIFICATION",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "83de7bdc-052f-453d-916e-ec8990e80920",
+            "sourceColumn": "SUPPLIES_RATE_CLASSIFICATION",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COMMUNICATION_RATE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "8217fa5e-ca0b-4491-bd50-3076d40724b3",
+            "sourceColumn": "COMMUNICATION_RATE",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COMMUNICATION_RATE_CLASSIFICATION",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0a6fabea-3f8b-4b9f-8b4b-f88c4129313e",
+            "sourceColumn": "COMMUNICATION_RATE_CLASSIFICATION",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CREATED_AT",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "9d3d739c-a24d-4daf-941e-a82b34450c17",
+            "sourceColumn": "CREATED_AT",
+            "sourceProviderType": "datetime2",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "61f936a8-af68-4304-bc01-a6c03855613d",
+        "measures": [
+          {
+            "name": "Total Ports",
+            "expression": [
+              "",
+              "DISTINCTCOUNT(DIM_PORT[PORT_KEY])"
+            ],
+            "formatString": "0",
+            "lineageTag": "19680178-bfd5-4152-b1c3-fc41dce057c5"
+          },
+          {
+            "name": "Average Channel Depth",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "AVERAGE(DIM_PORT[CHANNEL_DEPTH_M])"
+            ],
+            "lineageTag": "b145cf7c-a371-473e-b529-ccd2d182f476"
+          },
+          {
+            "name": "Average Maximum Vessel Draft",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "AVERAGE(DIM_PORT[MAXIMUM_VESSEL_DRAFT_M])"
+            ],
+            "lineageTag": "842ce882-89aa-4af4-bbd9-6cc72b679507"
+          },
+          {
+            "name": "Excellent Supply Ports",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT(DIM_PORT[PORT_KEY]),",
+              "    DIM_PORT[SUPPLIES_RATE_CLASSIFICATION] = \"Excellent\"",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "890fd137-4eec-4ce0-9d07-8c89c7db5f4f"
+          },
+          {
+            "name": "Excellent Communication Ports",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT(DIM_PORT[PORT_KEY]),",
+              "    DIM_PORT[COMMUNICATION_RATE_CLASSIFICATION] = \"Excellent\"",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "e0da461e-eebb-449e-897c-5492093200a7"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DIM_PORT",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Snowflake.Databases(\"qn44692.eu-central-2.aws.snowflakecomputing.com\",\"STREAMING_WH\"),",
+                "    STREAMING_DB_Database = Source{[Name=\"STREAMING_DB\",Kind=\"Database\"]}[Data],",
+                "    KAFKA_Schema = STREAMING_DB_Database{[Name=\"KAFKA\",Kind=\"Schema\"]}[Data],",
+                "    DIM_PORT_Table = KAFKA_Schema{[Name=\"DIM_PORT\",Kind=\"Table\"]}[Data],",
+                "    #\"Replaced Value\" = Table.ReplaceValue(DIM_PORT_Table,null,\"Not_Provided\",Replacer.ReplaceValue,{\"ALTERNATE_PORT_NAME\"}),",
+                "    #\"Replaced Value1\" = Table.ReplaceValue(#\"Replaced Value\",null,\"Not_Provided\",Replacer.ReplaceValue,{\"UN_LOCODE\"}),",
+                "    #\"Replaced Value2\" = Table.ReplaceValue(#\"Replaced Value1\",null,\"Not_Provided\",Replacer.ReplaceValue,{\"COUNTRY_CODE\"}),",
+                "    #\"Replaced Value3\" = Table.ReplaceValue(#\"Replaced Value2\",null,\"Not_Provided\",Replacer.ReplaceValue,{\"REGION_NAME\"}),",
+                "    #\"Replaced Value4\" = Table.ReplaceValue(#\"Replaced Value3\",null,\"Not_Provided\",Replacer.ReplaceValue,{\"WORLD_WATER_BODY\"}),",
+                "    #\"Replaced Value5\" = Table.ReplaceValue(#\"Replaced Value4\",null,\"Not_Provided\",Replacer.ReplaceValue,{\"IHO_S130_SEA_AREA\"})",
+                "in",
+                "    #\"Replaced Value5\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "FACT_EARTHQUAKE_PORT_RISK",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          }
+        ],
+        "columns": [
+          {
+            "name": "EARTHQUAKE_PORT_RISK_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "40e1dc90-6aa9-4cb8-a65a-c6497f4f5c2a",
+            "sourceColumn": "EARTHQUAKE_PORT_RISK_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "EARTHQUAKE_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "52777966-baef-445d-ba1a-2f41dd608dfb",
+            "sourceColumn": "EARTHQUAKE_KEY",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PORT_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "08e3d50e-b7aa-450c-bcc4-d5264003be83",
+            "sourceColumn": "PORT_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EARTHQUAKE_DATE_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "306c163b-3e42-43e7-8a24-42b20839296f",
+            "sourceColumn": "EARTHQUAKE_DATE_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DISTANCE_KM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "b0074a4d-e006-4e97-9066-f3af7b0a9d8f",
+            "sourceColumn": "DISTANCE_KM",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "RISK_RADIUS_KM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "aa8cd41b-ab9a-4441-948a-8a4b7f07e5a2",
+            "sourceColumn": "RISK_RADIUS_KM",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "IS_NEARBY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "boolean",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "lineageTag": "f8893854-a6a2-4781-8ff0-a42c465b9d4f",
+            "sourceColumn": "IS_NEARBY",
+            "sourceProviderType": "bit",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RISK_LEVEL",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f04cdff0-17ef-498a-88dc-b51a30ac3dca",
+            "sourceColumn": "RISK_LEVEL",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RISK_REASON",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "e40b1a86-ab12-432b-a873-0c7462bd49ef",
+            "sourceColumn": "RISK_REASON",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EVENT_YEAR",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "4e834a02-fb7f-4cdf-a796-0d65a4054efd",
+            "sourceColumn": "EVENT_YEAR",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "EVENT_MONTH",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "99fd76bc-0820-49ef-bc13-b44afa3fad5c",
+            "sourceColumn": "EVENT_MONTH",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "5fdff807-c0fc-402f-9aee-9e01f6e4c4c1",
+        "measures": [
+          {
+            "name": "Nearby Ports",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT(",
+              "        FACT_EARTHQUAKE_PORT_RISK[PORT_KEY]",
+              "    ),",
+              "    FACT_EARTHQUAKE_PORT_RISK[IS_NEARBY] = TRUE()",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "d2b8beca-4299-40ca-8fa0-e875b794a9df"
+          },
+          {
+            "name": "High Risk Ports",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    DISTINCTCOUNT(",
+              "        FACT_EARTHQUAKE_PORT_RISK[PORT_KEY]",
+              "    ),",
+              "    FACT_EARTHQUAKE_PORT_RISK[RISK_LEVEL] = \"HIGH\"",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "d379ea30-29ab-42f5-a454-871e9a188483"
+          },
+          {
+            "name": "Average Distance KM",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "AVERAGE(",
+              "    FACT_EARTHQUAKE_PORT_RISK[DISTANCE_KM]",
+              ")"
+            ],
+            "lineageTag": "4747347b-3deb-4eec-aa9e-974401aabec9"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FACT_EARTHQUAKE_PORT_RISK",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Snowflake.Databases(\"qn44692.eu-central-2.aws.snowflakecomputing.com\",\"STREAMING_WH\"),",
+                "    STREAMING_DB_Database = Source{[Name=\"STREAMING_DB\",Kind=\"Database\"]}[Data],",
+                "    KAFKA_Schema = STREAMING_DB_Database{[Name=\"KAFKA\",Kind=\"Schema\"]}[Data],",
+                "    FACT_EARTHQUAKE_PORT_RISK_Table = KAFKA_Schema{[Name=\"FACT_EARTHQUAKE_PORT_RISK\",Kind=\"Table\"]}[Data],",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(FACT_EARTHQUAKE_PORT_RISK_Table,{{\"EARTHQUAKE_KEY\", type text}})",
+                "in",
+                "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Maps",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "LOCATION_TYPE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isNullable": false,
+            "lineageTag": "2d8a22b8-3082-495a-99ac-d005ecc51081",
+            "sourceColumn": "LOCATION_TYPE",
+            "sourceProviderType": "nvarchar(10)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LOCATION_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b5edc3a0-db26-4a95-80dd-baf5b4f29e27",
+            "sourceColumn": "LOCATION_KEY",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LOCATION_NAME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "0174381e-06e4-4374-9c71-253719f25206",
+            "sourceColumn": "LOCATION_NAME",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LATITUDE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "126c785a-21cc-40af-8a00-6ec126c8ef8c",
+            "sourceColumn": "LATITUDE",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "LONGITUDE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "1f3c126a-981a-4f31-b9aa-cb54fba67cd2",
+            "sourceColumn": "LONGITUDE",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "MAGNITUDE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "b293b139-91a6-49f4-b662-230d2730cefe",
+            "sourceColumn": "MAGNITUDE",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DEPTH_KM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "e171ddec-6cff-4b21-a0b3-54f733ff0979",
+            "sourceColumn": "DEPTH_KM",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "EVENT_TIME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "e7c4ddc2-908a-4bbc-a2ac-85f85279aa8d",
+            "sourceColumn": "EVENT_TIME",
+            "sourceProviderType": "datetime2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PORT_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "f93251db-e11e-4e09-9117-2b304ee4df73",
+            "sourceColumn": "PORT_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "EARTHQUAKE_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "b24315ab-7778-49fa-baf1-2b1369be9b0c",
+            "sourceColumn": "EARTHQUAKE_KEY",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "e4614468-4d5b-4736-9192-7285f3174c7e",
+        "partitions": [
+          {
+            "name": "Maps",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Value.NativeQuery(Snowflake.Databases(\"qn44692.eu-central-2.aws.snowflakecomputing.com\",\"STREAMING_WH\"){[Name=\"STREAMING_DB\"]}[Data], \"SELECT#(lf)    'EARTHQUAKE' AS LOCATION_TYPE,#(lf)    UNID AS LOCATION_KEY,#(lf)    UNID AS LOCATION_NAME,#(lf)    LAT AS LATITUDE,#(lf)    LON AS LONGITUDE,#(lf)    MAG AS MAGNITUDE,#(lf)    DEPTH AS DEPTH_KM,#(lf)    TIME AS EVENT_TIME,#(lf)    NULL AS PORT_KEY,#(lf)    UNID AS EARTHQUAKE_KEY#(lf)FROM STREAMING_DB.KAFKA.EARTHQUAKES#(lf)#(lf)UNION ALL#(lf)#(lf)SELECT#(lf)    'PORT' AS LOCATION_TYPE,#(lf)    TO_VARCHAR(PORT_KEY) AS LOCATION_KEY,#(lf)    MAIN_PORT_NAME AS LOCATION_NAME,#(lf)    LATITUDE,#(lf)    LONGITUDE,#(lf)    NULL AS MAGNITUDE,#(lf)    NULL AS DEPTH_KM,#(lf)    NULL AS EVENT_TIME,#(lf)    PORT_KEY,#(lf)    NULL AS EARTHQUAKE_KEY#(lf)FROM STREAMING_DB.KAFKA.DIM_PORT\", null, [EnableFolding=true])",
+                "in",
+                "    Source"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "MapHelperTable",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "LOCATION_TYPE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isNullable": false,
+            "lineageTag": "29b3a837-31e9-4168-bf3a-f6fffe9e6e58",
+            "sourceColumn": "LOCATION_TYPE",
+            "sourceProviderType": "nvarchar(10)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LOCATION_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "f19d4751-f0a2-48a2-a662-35e85dbcede7",
+            "sourceColumn": "LOCATION_KEY",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LOCATION_NAME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "84f9c73e-752f-4826-b545-bcab278092b2",
+            "sourceColumn": "LOCATION_NAME",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LATITUDE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "395975bf-fb69-404b-aace-977f81e60c53",
+            "sourceColumn": "LATITUDE",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "LONGITUDE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "57ec2598-2cbc-4915-b3f9-6cb45ac79dbc",
+            "sourceColumn": "LONGITUDE",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "MAGNITUDE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "4142c55b-4854-4774-8446-12e6e6bf28c5",
+            "sourceColumn": "MAGNITUDE",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "DEPTH_KM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "7703817b-458a-4a24-8dc3-0cdac14d3e38",
+            "sourceColumn": "DEPTH_KM",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "EVENT_TIME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "General Date",
+            "lineageTag": "54773164-6e92-4fe4-bef8-db25b0c5be3f",
+            "sourceColumn": "EVENT_TIME",
+            "sourceProviderType": "datetime2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "RISK_RADIUS_KM",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "037d6d96-c7e6-4e41-aad8-fcbe67f6fda5",
+            "sourceColumn": "RISK_RADIUS_KM",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "MAP_SIZE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "ac96b8b0-d8f1-4bee-a197-69f227493293",
+            "sourceColumn": "MAP_SIZE",
+            "sourceProviderType": "double",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "PORT_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "9beb874e-42cd-45f2-8f6c-133f639f89f1",
+            "sourceColumn": "PORT_KEY",
+            "sourceProviderType": "decimal(38, 0)",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "EARTHQUAKE_KEY",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7c8b36b1-0c4c-407f-9029-053b9ad03130",
+            "sourceColumn": "EARTHQUAKE_KEY",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "FLYNN_REGION",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "eeaf9eee-fcc1-4802-ab25-f4231fa2a513",
+            "sourceColumn": "FLYNN_REGION",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MAGTYPE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9851afbe-1096-42a7-8100-08304a597190",
+            "sourceColumn": "MAGTYPE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "COUNTRY_CODE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "268a5320-8a74-4714-ad46-8a82e23c3884",
+            "sourceColumn": "COUNTRY_CODE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "REGION_NAME",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "09d187df-b455-4aca-a82b-ef8de5125740",
+            "sourceColumn": "REGION_NAME",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "HARBOR_SIZE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "9bde7130-42f1-4db8-883b-e771c24541d3",
+            "sourceColumn": "HARBOR_SIZE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "HARBOR_TYPE",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8b82163a-cc1f-40b5-a455-3c2826fc3043",
+            "sourceColumn": "HARBOR_TYPE",
+            "sourceProviderType": "nvarchar(16777216)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "935c01c5-754d-4a54-a6fd-d6aefd747e1b",
+        "partitions": [
+          {
+            "name": "MapHelperTable",
+            "mode": "directQuery",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Value.NativeQuery(Snowflake.Databases(\"qn44692.eu-central-2.aws.snowflakecomputing.com\",\"STREAMING_WH\"){[Name=\"STREAMING_DB\"]}[Data], \"SELECT#(lf)    'EARTHQUAKE' AS LOCATION_TYPE,#(lf)#(lf)    E.UNID AS LOCATION_KEY,#(lf)    E.UNID AS LOCATION_NAME,#(lf)#(lf)    E.LAT AS LATITUDE,#(lf)    E.LON AS LONGITUDE,#(lf)#(lf)    E.MAG AS MAGNITUDE,#(lf)    E.DEPTH AS DEPTH_KM,#(lf)    E.TIME AS EVENT_TIME,#(lf)#(lf)    MAX(F.RISK_RADIUS_KM) AS RISK_RADIUS_KM,#(lf)#(lf)    /* Bubble size for Power BI */#(lf)    MAX(F.RISK_RADIUS_KM) AS MAP_SIZE,#(lf)#(lf)    NULL::NUMBER AS PORT_KEY,#(lf)#(lf)    E.UNID AS EARTHQUAKE_KEY,#(lf)#(lf)    E.FLYNN_REGION,#(lf)    E.MAGTYPE,#(lf)#(lf)    NULL::VARCHAR AS COUNTRY_CODE,#(lf)    NULL::VARCHAR AS REGION_NAME,#(lf)    NULL::VARCHAR AS HARBOR_SIZE,#(lf)    NULL::VARCHAR AS HARBOR_TYPE#(lf)#(lf)FROM STREAMING_DB.KAFKA.EARTHQUAKES E#(lf)#(lf)LEFT JOIN STREAMING_DB.KAFKA.FACT_EARTHQUAKE_PORT_RISK F#(lf)    ON E.UNID = TO_VARCHAR(F.EARTHQUAKE_KEY)#(lf)#(lf)GROUP BY#(lf)    E.UNID,#(lf)    E.LAT,#(lf)    E.LON,#(lf)    E.MAG,#(lf)    E.DEPTH,#(lf)    E.TIME,#(lf)    E.FLYNN_REGION,#(lf)    E.MAGTYPE#(lf)#(lf)#(lf)UNION ALL#(lf)#(lf)#(lf)/* ============================================================#(lf)   PORTS#(lf)   One row per port#(lf)   ============================================================ */#(lf)#(lf)SELECT#(lf)    'PORT' AS LOCATION_TYPE,#(lf)#(lf)    TO_VARCHAR(P.PORT_KEY) AS LOCATION_KEY,#(lf)    P.MAIN_PORT_NAME AS LOCATION_NAME,#(lf)#(lf)    P.LATITUDE AS LATITUDE,#(lf)    P.LONGITUDE AS LONGITUDE,#(lf)#(lf)    NULL::FLOAT AS MAGNITUDE,#(lf)    NULL::FLOAT AS DEPTH_KM,#(lf)    NULL::TIMESTAMP_NTZ AS EVENT_TIME,#(lf)#(lf)    NULL::FLOAT AS RISK_RADIUS_KM,#(lf)#(lf)    /* Fixed small bubble for ports */#(lf)    5 AS MAP_SIZE,#(lf)#(lf)    P.PORT_KEY AS PORT_KEY,#(lf)#(lf)    NULL::VARCHAR AS EARTHQUAKE_KEY,#(lf)#(lf)    NULL::VARCHAR AS FLYNN_REGION,#(lf)    NULL::VARCHAR AS MAGTYPE,#(lf)#(lf)    P.COUNTRY_CODE,#(lf)    P.REGION_NAME,#(lf)    P.HARBOR_SIZE,#(lf)    P.HARBOR_TYPE#(lf)#(lf)FROM STREAMING_DB.KAFKA.DIM_PORT P\", null, [EnableFolding=true]),",
+                "    #\"Replaced Value\" = Table.ReplaceValue(Source,null,5,Replacer.ReplaceValue,{\"MAP_SIZE\"}),",
+                "    #\"Replaced Value1\" = Table.ReplaceValue(#\"Replaced Value\",null,5,Replacer.ReplaceValue,{\"RISK_RADIUS_KM\"})",
+                "in",
+                "    #\"Replaced Value1\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

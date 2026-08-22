@@ -25,7 +25,17 @@ RUN echo 'export PYSPARK_PYTHON=python' >> /home/itversity/.bashrc && \
 RUN mkdir -p /spark_jobs && \
     chown itversity:itversity /spark_jobs
 
+# Copy Hive Conf File
+#COPY hive/hive-site.xml /opt/custom-hive-site.xml
+
+#Hive Start up script
+#COPY utilities/start-hive.sh /usr/local/bin/start-hive.sh
+
+RUN chmod +x /usr/local/bin/start-hive.sh
+
 # Switch back to itversity user
 USER itversity
 
 WORKDIR /spark_jobs
+
+# ENTRYPOINT ["/usr/local/bin/start-hive.sh"]

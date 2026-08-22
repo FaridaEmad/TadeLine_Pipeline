@@ -1,0 +1,186 @@
+{
+  "config": "{\"version\":\"5.53\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.53\",\"type\":2},\"customTheme\":{\"name\":\"Temperature\",\"version\":\"5.53\",\"type\":2}},\"activeSectionIndex\":1,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU02",
+            "path": "BaseThemes/CY24SU02.json",
+            "type": 202
+          },
+          {
+            "name": "Temperature",
+            "path": "BuiltInThemes/Temperature.json",
+            "type": 201
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Earthquake Risk",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"021125b2dd3190c873cb\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":64.8,\"z\":2000,\"width\":315.36,\"height\":83.52,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"FACT_EARTHQUAKE_PORT_RISK.RISK_LEVEL\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FACT_EARTHQUAKE_PORT_RISK\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"RISK_LEVEL\"},\"Name\":\"FACT_EARTHQUAKE_PORT_RISK.RISK_LEVEL\",\"NativeReferenceName\":\"RISK_LEVEL\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"header\":[{\"properties\":{\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}},\"outlineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}],\"items\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":3,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 83.52,
+          "width": 315.36,
+          "x": 0.00,
+          "y": 64.80,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"5120bcfdaa44f0c7724e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":152.64000000000001,\"z\":1000,\"width\":1280.16,\"height\":112.32000000000001,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"EARTHQUAKES.Total_Earthquakes\"},{\"queryRef\":\"EARTHQUAKES.Earthquakes Last 24H\"},{\"queryRef\":\"FACT_EARTHQUAKE_PORT_RISK.Nearby Ports\"},{\"queryRef\":\"FACT_EARTHQUAKE_PORT_RISK.High Risk Ports\"},{\"queryRef\":\"FACT_EARTHQUAKE_PORT_RISK.Average Distance KM\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"EARTHQUAKES\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"FACT_EARTHQUAKE_PORT_RISK\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Total_Earthquakes\"},\"Name\":\"EARTHQUAKES.Total_Earthquakes\",\"NativeReferenceName\":\"Total_Earthquakes\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Earthquakes Last 24H\"},\"Name\":\"EARTHQUAKES.Earthquakes Last 24H\",\"NativeReferenceName\":\"Earthquakes Last 24H\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Nearby Ports\"},\"Name\":\"FACT_EARTHQUAKE_PORT_RISK.Nearby Ports\",\"NativeReferenceName\":\"Nearby Ports\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"High Risk Ports\"},\"Name\":\"FACT_EARTHQUAKE_PORT_RISK.High Risk Ports\",\"NativeReferenceName\":\"High Risk Ports\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Average Distance KM\"},\"Name\":\"FACT_EARTHQUAKE_PORT_RISK.Average Distance KM\",\"NativeReferenceName\":\"Average Distance KM\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"Total_Earthquakes\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"layout\":[{\"properties\":{\"maxTiles\":{\"expr\":{\"Literal\":{\"Value\":\"7L\"}}}}}],\"value\":[{\"properties\":{\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"horizontalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":3,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"label\":[{\"properties\":{\"heading\":{\"expr\":{\"Literal\":{\"Value\":\"'Heading3'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"13D\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}},\"italic\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}},\"selector\":{\"id\":\"default\"}}],\"shapeCustomRectangle\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRoundedByPixel'\"}}},\"rectangleRoundedCurveCustomStyle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}},\"selector\":{\"id\":\"default\"}}],\"outline\":[{\"properties\":{\"weight\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}},\"lineColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}}},\"selector\":{\"id\":\"default\"}}],\"spacing\":[{\"properties\":{\"verticalSpacing\":{\"expr\":{\"Literal\":{\"Value\":\"6L\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualHeader\":[{\"properties\":{\"border\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 112.32,
+          "width": 1280.16,
+          "x": 0.00,
+          "y": 152.64,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"6d5817a1a54fa3ed6c4d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":784.8000000000001,\"y\":264.96000000000004,\"z\":7000,\"width\":493.92,\"height\":149.76000000000002,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"FACT_EARTHQUAKE_PORT_RISK.RISK_LEVEL\",\"active\":true}],\"Y\":[{\"queryRef\":\"Count(FACT_EARTHQUAKE_PORT_RISK.PORT_KEY)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"FACT_EARTHQUAKE_PORT_RISK\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"RISK_LEVEL\"},\"Name\":\"FACT_EARTHQUAKE_PORT_RISK.RISK_LEVEL\",\"NativeReferenceName\":\"RISK_LEVEL\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"PORT_KEY\"}},\"Function\":2},\"Name\":\"Count(FACT_EARTHQUAKE_PORT_RISK.PORT_KEY)\",\"NativeReferenceName\":\"Count of PORT_KEY1\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"PORT_KEY\"}},\"Function\":2}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}],\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Comparison Between Risk Levels'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 149.76,
+          "width": 493.92,
+          "x": 784.80,
+          "y": 264.96,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"818c5f49bec391483dcc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":325.44,\"y\":64.8,\"z\":3000,\"width\":313.92,\"height\":83.52,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"EARTHQUAKES.TIME\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"EARTHQUAKES\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"TIME\"},\"Name\":\"EARTHQUAKES.TIME\",\"NativeReferenceName\":\"TIME\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"TIME\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2025-08-08T00:42:00.063'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"EARTHQUAKES\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":2,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"TIME\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2025-08-08T00:00:00'\"}}}}}]}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 83.52,
+          "width": 313.92,
+          "x": 325.44,
+          "y": 64.80,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"944c0632a73278c1396b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280.16,\"height\":64.8,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"EARTHQUAKE & PORT RISK MONITOR\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontFamily\":\"Calibri\",\"fontSize\":\"36pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]",
+          "height": 64.80,
+          "width": 1280.16,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"98546b18cb5e0e392c28\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":264.96000000000004,\"z\":6000,\"width\":774.72,\"height\":149.76000000000002,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"EARTHQUAKES.UNID\"},{\"queryRef\":\"EARTHQUAKES.TIME\"},{\"queryRef\":\"EARTHQUAKES.FLYNN_REGION\"},{\"queryRef\":\"Sum(EARTHQUAKES.MAG)\"},{\"queryRef\":\"EARTHQUAKES.MAGTYPE\"},{\"queryRef\":\"Sum(EARTHQUAKES.DEPTH)\"},{\"queryRef\":\"Sum(EARTHQUAKES.LAT)\"},{\"queryRef\":\"Sum(EARTHQUAKES.LON)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"e\",\"Entity\":\"EARTHQUAKES\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"UNID\"},\"Name\":\"EARTHQUAKES.UNID\",\"NativeReferenceName\":\"UNID\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"TIME\"},\"Name\":\"EARTHQUAKES.TIME\",\"NativeReferenceName\":\"TIME\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"FLYNN_REGION\"},\"Name\":\"EARTHQUAKES.FLYNN_REGION\",\"NativeReferenceName\":\"FLYNN_REGION\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"MAG\"},\"Name\":\"Sum(EARTHQUAKES.MAG)\",\"NativeReferenceName\":\"MAG\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"MAGTYPE\"},\"Name\":\"EARTHQUAKES.MAGTYPE\",\"NativeReferenceName\":\"MAGTYPE\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"DEPTH\"},\"Name\":\"Sum(EARTHQUAKES.DEPTH)\",\"NativeReferenceName\":\"DEPTH\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"LAT\"},\"Name\":\"Sum(EARTHQUAKES.LAT)\",\"NativeReferenceName\":\"LAT\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"LON\"},\"Name\":\"Sum(EARTHQUAKES.LON)\",\"NativeReferenceName\":\"LON\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"e\"}},\"Property\":\"TIME\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnHeaders\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 149.76,
+          "width": 774.72,
+          "x": 0.00,
+          "y": 264.96,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"aae311873a5d0ca65dc1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":652.32,\"y\":64.8,\"z\":4000,\"width\":300.96000000000004,\"height\":83.52,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DIM_PORT.COUNTRY_CODE\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DIM_PORT\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"COUNTRY_CODE\"},\"Name\":\"DIM_PORT.COUNTRY_CODE\",\"NativeReferenceName\":\"COUNTRY_CODE\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 83.52,
+          "width": 300.96,
+          "x": 652.32,
+          "y": 64.80,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"d0574e2b522cb5a1e19b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":420.48,\"z\":8000,\"width\":1280.16,\"height\":299.52000000000004,\"tabOrder\":8000}}],\"singleVisual\":{\"visualType\":\"map\",\"projections\":{\"Category\":[{\"queryRef\":\"MapHelperTable.LATITUDE\",\"active\":true},{\"queryRef\":\"MapHelperTable.LONGITUDE\"}],\"Series\":[{\"queryRef\":\"MapHelperTable.LOCATION_TYPE\"}],\"Size\":[{\"queryRef\":\"Sum(MapHelperTable.RISK_RADIUS_KM)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"MapHelperTable\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"LATITUDE\"},\"Name\":\"MapHelperTable.LATITUDE\",\"NativeReferenceName\":\"LATITUDE\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"LONGITUDE\"},\"Name\":\"MapHelperTable.LONGITUDE\",\"NativeReferenceName\":\"LONGITUDE\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"LOCATION_TYPE\"},\"Name\":\"MapHelperTable.LOCATION_TYPE\",\"NativeReferenceName\":\"LOCATION_TYPE\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"RISK_RADIUS_KM\"}},\"Function\":0},\"Name\":\"Sum(MapHelperTable.RISK_RADIUS_KM)\",\"NativeReferenceName\":\"Sum of RISK_RADIUS_KM\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Maps\"}},\"Property\":\"LOCATION_TYPE\"}},\"Right\":{\"Literal\":{\"Value\":\"'EARTHQUAKE'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#118DFF'\"}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Maps\"}},\"Property\":\"LOCATION_TYPE\"}},\"Right\":{\"Literal\":{\"Value\":\"'PORT'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"MapHelperTable\"}},\"Property\":\"LOCATION_TYPE\"}},\"Right\":{\"Literal\":{\"Value\":\"'PORT'\"}}}}}]}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}}},\"selector\":{\"data\":[{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"MapHelperTable\"}},\"Property\":\"LOCATION_TYPE\"}},\"Right\":{\"Literal\":{\"Value\":\"'EARTHQUAKE'\"}}}}}]}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Earthquakes_Ports_Risk'\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 299.52,
+          "width": 1280.16,
+          "x": 0.00,
+          "y": 420.48,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"df0fd545d4259dd39b0b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":964.8000000000001,\"y\":64.8,\"z\":5000,\"width\":313.92,\"height\":83.52,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"DIM_PORT.REGION_NAME\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DIM_PORT\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"REGION_NAME\"},\"Name\":\"DIM_PORT.REGION_NAME\",\"NativeReferenceName\":\"REGION_NAME\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"header\":[{\"properties\":{\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"5D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 83.52,
+          "width": 313.92,
+          "x": 964.80,
+          "y": 64.80,
+          "z": 5000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Port Analysis",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection5ed9a40572d68f5ba17b",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"01ab0433bec8d42477b0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":190.08,\"z\":2000,\"width\":1280.16,\"height\":231.84,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"map\",\"projections\":{\"Y\":[{\"queryRef\":\"DIM_PORT.LATITUDE\"}],\"X\":[{\"queryRef\":\"DIM_PORT.LONGITUDE\"}],\"Tooltips\":[{\"queryRef\":\"Min(DIM_PORT.COUNTRY_CODE)\"},{\"queryRef\":\"Min(DIM_PORT.MAIN_PORT_NAME)\"},{\"queryRef\":\"Min(DIM_PORT.REGION_NAME)\"},{\"queryRef\":\"Min(DIM_PORT.HARBOR_SIZE)\"},{\"queryRef\":\"Min(DIM_PORT.HARBOR_TYPE)\"},{\"queryRef\":\"CountNonNull(DIM_PORT.CHANNEL_DEPTH_M)\"},{\"queryRef\":\"CountNonNull(DIM_PORT.MAXIMUM_VESSEL_DRAFT_M)\"},{\"queryRef\":\"Min(DIM_PORT.SUPPLIES_RATE_CLASSIFICATION)\"},{\"queryRef\":\"CountNonNull(DIM_PORT.COMMUNICATION_RATE)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DIM_PORT\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"LATITUDE\"},\"Name\":\"DIM_PORT.LATITUDE\",\"NativeReferenceName\":\"LATITUDE\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"LONGITUDE\"},\"Name\":\"DIM_PORT.LONGITUDE\",\"NativeReferenceName\":\"LONGITUDE\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"COUNTRY_CODE\"}},\"Function\":3},\"Name\":\"Min(DIM_PORT.COUNTRY_CODE)\",\"NativeReferenceName\":\"First COUNTRY_CODE\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MAIN_PORT_NAME\"}},\"Function\":3},\"Name\":\"Min(DIM_PORT.MAIN_PORT_NAME)\",\"NativeReferenceName\":\"First MAIN_PORT_NAME\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"REGION_NAME\"}},\"Function\":3},\"Name\":\"Min(DIM_PORT.REGION_NAME)\",\"NativeReferenceName\":\"First REGION_NAME\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"HARBOR_SIZE\"}},\"Function\":3},\"Name\":\"Min(DIM_PORT.HARBOR_SIZE)\",\"NativeReferenceName\":\"First HARBOR_SIZE\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"HARBOR_TYPE\"}},\"Function\":3},\"Name\":\"Min(DIM_PORT.HARBOR_TYPE)\",\"NativeReferenceName\":\"First HARBOR_TYPE\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"CHANNEL_DEPTH_M\"}},\"Function\":4},\"Name\":\"CountNonNull(DIM_PORT.CHANNEL_DEPTH_M)\",\"NativeReferenceName\":\"Max of CHANNEL_DEPTH_M\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"MAXIMUM_VESSEL_DRAFT_M\"}},\"Function\":4},\"Name\":\"CountNonNull(DIM_PORT.MAXIMUM_VESSEL_DRAFT_M)\",\"NativeReferenceName\":\"Max of MAXIMUM_VESSEL_DRAFT_M\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"SUPPLIES_RATE_CLASSIFICATION\"}},\"Function\":3},\"Name\":\"Min(DIM_PORT.SUPPLIES_RATE_CLASSIFICATION)\",\"NativeReferenceName\":\"First SUPPLIES_RATE_CLASSIFICATION\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"COMMUNICATION_RATE\"}},\"Function\":5},\"Name\":\"CountNonNull(DIM_PORT.COMMUNICATION_RATE)\",\"NativeReferenceName\":\"Count of COMMUNICATION_RATE\"}]},\"drillFilterOtherVisuals\":true,\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Ports_Locations'\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}}}}],\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"9D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 231.84,
+          "width": 1280.16,
+          "x": 0.00,
+          "y": 190.08,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"28ee4b1b933fa945bc53\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280.16,\"height\":74.88000000000001,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Port Analysis\",\"textStyle\":{\"fontFamily\":\"Calibri\",\"fontSize\":\"36pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]",
+          "height": 74.88,
+          "width": 1280.16,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"7ff895b7322046efcb71\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":74.88000000000001,\"z\":1000,\"width\":1280.16,\"height\":115.2,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"DIM_PORT.Average Channel Depth\"},{\"queryRef\":\"DIM_PORT.Average Maximum Vessel Draft\"},{\"queryRef\":\"DIM_PORT.Excellent Communication Ports\"},{\"queryRef\":\"DIM_PORT.Excellent Supply Ports\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DIM_PORT\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Average Channel Depth\"},\"Name\":\"DIM_PORT.Average Channel Depth\",\"NativeReferenceName\":\"Average Channel Depth\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Average Maximum Vessel Draft\"},\"Name\":\"DIM_PORT.Average Maximum Vessel Draft\",\"NativeReferenceName\":\"Average Maximum Vessel Draft\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Excellent Communication Ports\"},\"Name\":\"DIM_PORT.Excellent Communication Ports\",\"NativeReferenceName\":\"Excellent Communication Ports\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Excellent Supply Ports\"},\"Name\":\"DIM_PORT.Excellent Supply Ports\",\"NativeReferenceName\":\"Excellent Supply Ports\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Average Channel Depth\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"layout\":[{\"properties\":{\"maxTiles\":{\"expr\":{\"Literal\":{\"Value\":\"5L\"}}}}}],\"shapeCustomRectangle\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangleRoundedByPixel'\"}}}},\"selector\":{\"id\":\"default\"}}],\"value\":[{\"properties\":{\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":3,\"Percent\":0}}}}},\"horizontalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}}},\"selector\":{\"id\":\"default\"}}],\"label\":[{\"properties\":{\"heading\":{\"expr\":{\"Literal\":{\"Value\":\"'Heading3'\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"14D\"}}}},\"selector\":{\"id\":\"default\"}}]}}}",
+          "filters": "[]",
+          "height": 115.20,
+          "width": 1280.16,
+          "x": 0.00,
+          "y": 74.88,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"85c946d5fc645ef86e40\",\"layouts\":[{\"id\":0,\"position\":{\"x\":446.40000000000003,\"y\":432,\"z\":4000,\"width\":410.40000000000003,\"height\":288,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Y\":[{\"queryRef\":\"CountNonNull(DIM_PORT.PORT_KEY)\"}],\"Category\":[{\"queryRef\":\"DIM_PORT.SUPPLIES_RATE_CLASSIFICATION\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DIM_PORT\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"PORT_KEY\"}},\"Function\":5},\"Name\":\"CountNonNull(DIM_PORT.PORT_KEY)\",\"NativeReferenceName\":\"PORT_KEY\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"SUPPLIES_RATE_CLASSIFICATION\"},\"Name\":\"DIM_PORT.SUPPLIES_RATE_CLASSIFICATION\",\"NativeReferenceName\":\"SUPPLIES_RATE_CLASSIFICATION\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"PORT_KEY\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Comparison Between Supplies Classes'\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 288.00,
+          "width": 410.40,
+          "x": 446.40,
+          "y": 432.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"b8bcd580effdac80c6d8\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":432,\"z\":3000,\"width\":434.88,\"height\":288,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"DIM_PORT.HARBOR_TYPE\",\"active\":true}],\"Y\":[{\"queryRef\":\"CountNonNull(DIM_PORT.PORT_KEY)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DIM_PORT\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"HARBOR_TYPE\"},\"Name\":\"DIM_PORT.HARBOR_TYPE\",\"NativeReferenceName\":\"HARBOR_TYPE\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"PORT_KEY\"}},\"Function\":5},\"Name\":\"CountNonNull(DIM_PORT.PORT_KEY)\",\"NativeReferenceName\":\"Count of PORT_KEY\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"PORT_KEY\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Comparison Between Harbor Types'\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 288.00,
+          "width": 434.88,
+          "x": 0.00,
+          "y": 432.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"bea9c3fb57ce1bd8e2f7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":868.32,\"y\":432,\"z\":5000,\"width\":411.84000000000003,\"height\":288,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Y\":[{\"queryRef\":\"CountNonNull(DIM_PORT.PORT_KEY)\"}],\"Category\":[{\"queryRef\":\"DIM_PORT.COMMUNICATION_RATE_CLASSIFICATION\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"DIM_PORT\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"PORT_KEY\"}},\"Function\":5},\"Name\":\"CountNonNull(DIM_PORT.PORT_KEY)\",\"NativeReferenceName\":\"PORT_KEY\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"COMMUNICATION_RATE_CLASSIFICATION\"},\"Name\":\"DIM_PORT.COMMUNICATION_RATE_CLASSIFICATION\",\"NativeReferenceName\":\"COMMUNICATION_RATE_CLASSIFICATION\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"PORT_KEY\"}},\"Function\":5}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":0,\"Percent\":-0.3}}}}},\"radius\":{\"expr\":{\"Literal\":{\"Value\":\"10D\"}}}}}],\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Comparison Between Supplies Classes'\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":9,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 288.00,
+          "width": 411.84,
+          "x": 868.32,
+          "y": 432.00,
+          "z": 5000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ],
+  "theme": "Temperature"
+}
