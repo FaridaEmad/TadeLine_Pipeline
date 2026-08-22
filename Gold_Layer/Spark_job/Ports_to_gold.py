@@ -245,40 +245,61 @@ def assign_surrogate_keys(df):
     )
 
     gold_exists = False
+    existing_keys = None
+
+    # ========================================================
+    # Read Existing Gold Keys
+    # ========================================================
 
     try:
 
-        # Read only the existing business keys
-        # and surrogate keys from Gold
-        existing_keys = (
+        existing_keys_raw = (
             spark.read
             .parquet(GOLD_PATH)
             .select(
                 "oid",
                 "port_key"
             )
-            .dropDuplicates(
-                ["oid"]
+            .dropDuplicates(["oid"])
+        )
+
+        existing_keys_count = existing_keys_raw.count()
+
+        if existing_keys_count > 0:
+
+            gold_exists = True
+
+            logger.info(
+                f"Existing Gold dimension found. "
+                f"Existing keys: {existing_keys_count}"
             )
-            .cache()
-        )
 
-        # Force Spark to actually read the old Gold data
-        existing_keys.count()
+            # Materialize the mapping independently
+            existing_keys_data = existing_keys_raw.collect()
 
-        gold_exists = True
+            existing_keys = spark.createDataFrame(
+                existing_keys_data,
+                schema=existing_keys_raw.schema
+            )
+
+        else:
+
+            logger.info(
+                "Gold dimension exists but contains no records. "
+                "Treating as initial load."
+            )
+
+    except Exception as e:
 
         logger.info(
-            "Existing Gold dimension found."
+            f"No existing Gold dimension found. "
+            f"Treating as initial load. Reason: {str(e)}"
         )
 
-    except Exception:
+    # ========================================================
+    # Initial Load
+    # ========================================================
 
-        logger.info(
-            "No existing Gold dimension found. "
-            "This is treated as the initial load."
-        )
- # Initial Load 
     if not gold_exists:
 
         logger.info(
@@ -302,8 +323,10 @@ def assign_surrogate_keys(df):
 
         return df
 
-    # Existing Gold
-    # Find current ports that already have keys
+    # ========================================================
+    # Match Existing Ports With Existing Surrogate Keys
+    # ========================================================
+
     df_with_keys = (
         df.alias("current")
         .join(
@@ -319,7 +342,10 @@ def assign_surrogate_keys(df):
         )
     )
 
-  # Find Maximum Existing Surrogate Key
+    # ========================================================
+    # Find Maximum Existing Surrogate Key
+    # ========================================================
+
     max_key_row = (
         existing_keys
         .agg(
@@ -339,8 +365,10 @@ def assign_surrogate_keys(df):
         f"Current maximum port_key: {max_port_key}"
     )
 
-  # Separate Existing and New Ports
- 
+    # ========================================================
+    # Existing Ports
+    # ========================================================
+
     existing_ports = (
         df_with_keys
         .filter(
@@ -354,6 +382,10 @@ def assign_surrogate_keys(df):
             "existing_port_key"
         )
     )
+
+    # ========================================================
+    # New Ports
+    # ========================================================
 
     new_ports = (
         df_with_keys
@@ -369,8 +401,6 @@ def assign_surrogate_keys(df):
         f"{new_ports_count}"
     )
 
-   # Assign New Surrogate Keys
-    
     if new_ports_count > 0:
 
         window_spec = Window.orderBy(
@@ -406,14 +436,13 @@ def assign_surrogate_keys(df):
             )
         )
 
-   # Combine Existing and New Ports
-   
+    # ========================================================
+    # Combine Existing + New Ports
+    # ========================================================
+
     final_df = existing_ports.unionByName(
         new_ports
     )
-
-    # Release cached old Gold keys
-    existing_keys.unpersist()
 
     logger.info(
         "Surrogate keys assigned successfully."

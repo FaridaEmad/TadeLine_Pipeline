@@ -1,0 +1,314 @@
+# ============================================================
+# Gold Schema Configuration
+# ============================================================
+
+sources:
+
+  ports:
+
+    description: "Current Port Dimension"
+
+    input_path: "/silver_layer/ports"
+    output_path: "/gold_layer/ports"
+
+    # ========================================================
+    # Validation
+    # ========================================================
+
+    validation:
+
+      required_columns:
+
+        - oid
+        - world_port_index_number
+        - main_port_name
+        - alternate_port_name
+        - un_locode
+        - country_code
+        - region_name
+        - world_water_body
+        - iho_s130_sea_area
+
+        - harbor_size
+        - harbor_type
+        - harbor_use
+        - shelter_afforded
+
+        - latitude
+        - longitude
+
+        - tidal_range_m
+        - entrance_width_m
+        - channel_depth_m
+        - anchorage_depth_m
+        - cargo_pier_depth_m
+
+        - maximum_vessel_length_m
+        - maximum_vessel_beam_m
+        - maximum_vessel_draft_m
+
+        - supplies_provisions
+        - supplies_fuel_oil
+        - supplies_diesel_oil
+        - supplies_potable_water
+        - repairs
+
+        - communications_radio
+        - communications_telephone
+        - communications_airport
+        - communications_telefax
+
+        - snapshot_year
+        - snapshot_month
+
+      allow_extra_columns: false
+      allow_missing_columns: false
+      allow_empty_file: false
+
+
+    # ========================================================
+    # Source Columns
+    # ========================================================
+
+    columns:
+
+      # ------------------------------------------------------
+      # Port Identification
+      # ------------------------------------------------------
+
+      oid:
+        type: integer
+        nullable: false
+
+      world_port_index_number:
+        type: integer
+        nullable: true
+
+      main_port_name:
+        type: string
+        nullable: true
+
+      alternate_port_name:
+        type: string
+        nullable: true
+
+      un_locode:
+        type: string
+        nullable: true
+
+      country_code:
+        type: string
+        nullable: true
+
+      region_name:
+        type: string
+        nullable: true
+
+      world_water_body:
+        type: string
+        nullable: true
+
+      iho_s130_sea_area:
+        type: string
+        nullable: true
+
+
+      # ------------------------------------------------------
+      # Harbor Information
+      # ------------------------------------------------------
+
+      harbor_size:
+        type: string
+        nullable: true
+
+      harbor_type:
+        type: string
+        nullable: true
+
+      harbor_use:
+        type: string
+        nullable: true
+
+      shelter_afforded:
+        type: string
+        nullable: true
+
+
+      # ------------------------------------------------------
+      # Geographic Information
+      # ------------------------------------------------------
+
+      latitude:
+        type: double
+        nullable: true
+
+      longitude:
+        type: double
+        nullable: true
+
+
+      # ------------------------------------------------------
+      # Port Depth / Capacity
+      # ------------------------------------------------------
+
+      tidal_range_m:
+        type: double
+        nullable: true
+
+      entrance_width_m:
+        type: double
+        nullable: true
+
+      channel_depth_m:
+        type: double
+        nullable: true
+
+      anchorage_depth_m:
+        type: double
+        nullable: true
+
+      cargo_pier_depth_m:
+        type: double
+        nullable: true
+
+      maximum_vessel_length_m:
+        type: double
+        nullable: true
+
+      maximum_vessel_beam_m:
+        type: double
+        nullable: true
+
+      maximum_vessel_draft_m:
+        type: double
+        nullable: true
+
+
+      # ------------------------------------------------------
+      # Supplies
+      # ------------------------------------------------------
+
+      supplies_provisions:
+        type: string
+        nullable: true
+
+      supplies_fuel_oil:
+        type: string
+        nullable: true
+
+      supplies_diesel_oil:
+        type: string
+        nullable: true
+
+      supplies_potable_water:
+        type: string
+        nullable: true
+
+      repairs:
+        type: string
+        nullable: true
+
+
+      # ------------------------------------------------------
+      # Communications
+      # ------------------------------------------------------
+
+      communications_radio:
+        type: string
+        nullable: true
+
+      communications_telephone:
+        type: string
+        nullable: true
+
+      communications_airport:
+        type: string
+        nullable: true
+
+      communications_telefax:
+        type: string
+        nullable: true
+
+
+      # ------------------------------------------------------
+      # Gold Metrics
+      # ------------------------------------------------------
+
+      supplies_count:
+        type: integer
+        nullable: true
+
+      supplies_rate:
+        type: string
+        nullable: true
+
+      communications_count:
+        type: integer
+        nullable: true
+
+      comm_rate:
+        type: string
+        nullable: true
+
+
+      # ------------------------------------------------------
+      # Surrogate Key
+      # ------------------------------------------------------
+
+      port_key:
+        type: long
+        nullable: false
+
+
+    # ========================================================
+    # Gold Output Columns
+    # ========================================================
+
+    gold_columns:
+
+      - port_key
+
+      - oid
+      - world_port_index_number
+      - main_port_name
+      - alternate_port_name
+      - un_locode
+      - country_code
+      - region_name
+      - world_water_body
+      - iho_s130_sea_area
+
+      - harbor_size
+      - harbor_type
+      - harbor_use
+      - shelter_afforded
+
+      - latitude
+      - longitude
+
+      - tidal_range_m
+      - entrance_width_m
+      - channel_depth_m
+      - anchorage_depth_m
+      - cargo_pier_depth_m
+
+      - maximum_vessel_length_m
+      - maximum_vessel_beam_m
+      - maximum_vessel_draft_m
+
+      - supplies_provisions
+      - supplies_fuel_oil
+      - supplies_diesel_oil
+      - supplies_potable_water
+      - repairs
+
+      - supplies_count
+      - supplies_rate
+
+      - communications_radio
+      - communications_telephone
+      - communications_airport
+      - communications_telefax
+
+      - communications_count
+      - comm_rate

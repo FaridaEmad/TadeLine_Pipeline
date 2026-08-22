@@ -29,8 +29,8 @@ logger = configure_logger(
 # Paths
 
 
-RAW_PATH = "/raw_layer/ports/"
-SILVER_PATH = "/silver_layer/ports"
+RAW_PATH = "hdfs:///raw_layer/ports/"
+SILVER_PATH = "hdfs:///silver_layer/ports"
 
 CONFIG_PATH = os.path.join(
     BASE_DIR,
