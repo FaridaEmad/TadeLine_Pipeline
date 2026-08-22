@@ -52,11 +52,11 @@ default_args = {
 # ============================================================
 
 with DAG(
-    dag_id="ports_etl_pipeline",
+    dag_id="batch_etl_pipeline",
     default_args=default_args,
     description="End-to-end Ports ETL: SFTP -> Bronze -> Silver -> Gold",
     start_date=datetime(2026, 8, 1),
-    schedule_interval="@daily",
+    schedule_interval="@monthly",
     catchup=False,
     max_active_runs=1,
     tags=["ports", "etl", "bronze", "silver", "gold"],
