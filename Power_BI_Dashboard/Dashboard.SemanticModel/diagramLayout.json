@@ -1,0 +1,112 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 167
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "DIM_DATE",
+          "nodeLineageTag": "4190a158-2169-4be1-bbc5-7ee978e28711",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 2,
+            "y": 332
+          },
+          "nodeIndex": "DIM_TIME",
+          "nodeLineageTag": "cb7136e3-766f-4875-892b-23a096c7b774",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 342,
+            "y": 0
+          },
+          "nodeIndex": "EARTHQUAKES",
+          "nodeLineageTag": "27e7b4f2-1c76-4c31-bae5-c3cfea4b509b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 635,
+            "y": 167
+          },
+          "nodeIndex": "DIM_PORT",
+          "nodeLineageTag": "61f936a8-af68-4304-bc01-a6c03855613d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 344,
+            "y": 447
+          },
+          "nodeIndex": "FACT_EARTHQUAKE_PORT_RISK",
+          "nodeLineageTag": "5fdff807-c0fc-402f-9aee-9e01f6e4c4c1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 919,
+            "y": 223.5
+          },
+          "nodeIndex": "Maps",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1203,
+            "y": 223.5
+          },
+          "nodeIndex": "MapHelperTable",
+          "nodeLineageTag": "935c01c5-754d-4a54-a6fd-d6aefd747e1b",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}
