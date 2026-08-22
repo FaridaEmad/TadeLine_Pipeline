@@ -1,0 +1,93 @@
+2026-08-20 22:31:22,597 - earthquake_archive - INFO - [START] Earthquake daily archive job started
+2026-08-20 22:31:22,609 - earthquake_archive - INFO - [CONFIG] Setting Snowflake configuration
+2026-08-20 22:31:22,612 - earthquake_archive - INFO - [CONFIG] Snowflake account: qn44692.eu-central-2.aws
+2026-08-20 22:31:22,614 - earthquake_archive - INFO - [CONFIG] Database: STREAMING_DB
+2026-08-20 22:31:22,616 - earthquake_archive - INFO - [CONFIG] Schema: KAFKA
+2026-08-20 22:31:22,620 - earthquake_archive - INFO - [CONFIG] Warehouse: STREAMING_WH
+2026-08-20 22:31:22,622 - earthquake_archive - INFO - [CONFIG] Role: SPARK_ROLE
+2026-08-20 22:31:22,648 - earthquake_archive - INFO - [CONFIG] Snowflake configuration created
+2026-08-20 22:31:22,649 - earthquake_archive - INFO - [SPARK] Creating SparkSession
+2026-08-20 22:31:22,655 - earthquake_archive - INFO - Starting earthquake daily archive job
+2026-08-20 22:34:21,895 - earthquake_archive - INFO - [SPARK] SparkSession created successfully
+2026-08-20 22:34:22,007 - earthquake_archive - INFO - [WATERMARK] Reading previous watermark
+2026-08-20 22:34:22,045 - earthquake_archive - INFO - [WATERMARK] Query:
+2026-08-20 22:34:22,068 - earthquake_archive - INFO - 
+SELECT last_ingestion_date
+FROM streaming_db.kafka.earthquake_archive_watermark
+WHERE pipeline_name = 'earthquake_daily_archive'
+
+2026-08-20 22:35:33,457 - earthquake_archive - INFO - [WATERMARK] Watermark query executed successfully
+2026-08-20 22:36:25,757 - earthquake_archive - INFO - [WATERMARK] Previous watermark: 1970-01-01 16:00:00
+2026-08-20 22:36:25,760 - earthquake_archive - INFO - [BOUNDARY] Getting current Snowflake timestamp
+2026-08-20 22:36:26,977 - earthquake_archive - INFO - [BOUNDARY] CURRENT_TIMESTAMP query executed
+2026-08-20 22:36:32,857 - earthquake_archive - INFO - [BOUNDARY] Current archive upper boundary: 2026-08-20 22:36:27.561000
+2026-08-20 22:36:32,859 - earthquake_archive - INFO - [SOURCE] Reading new earthquake records from Snowflake
+2026-08-20 22:36:33,098 - earthquake_archive - INFO - [SOURCE] Earthquake query:
+2026-08-20 22:36:33,104 - earthquake_archive - INFO - 
+SELECT
+    UNID AS unid,
+    SOURCE_ID AS source_id,
+    TIME AS event_timestamp,
+    LAT AS latitude,
+    LON AS longitude,
+    DEPTH AS depth,
+    MAG AS magnitude,
+    MAGTYPE AS magnitude_type,
+    EVTYPE AS event_type,
+    SOURCE_CATALOG AS source_catalog,
+    AUTH AS authority,
+    RECEIVED_AT AS received_at,
+    EVENT_DATE AS ingestion_date
+FROM streaming_db.kafka.earthquakes
+WHERE ingestion_date > '1970-01-01 16:00:00'
+  AND ingestion_date <= '2026-08-20 22:36:27.561000'
+
+2026-08-20 22:36:33,753 - earthquake_archive - INFO - [SOURCE] Earthquake data loaded successfully
+2026-08-20 22:36:33,892 - earthquake_archive - INFO - [COUNT] Counting new earthquake records
+2026-08-20 22:36:37,306 - earthquake_archive - INFO - [COUNT] New earthquake records found: 113
+2026-08-20 22:36:37,308 - earthquake_archive - INFO - [ARCHIVE] 113 records need to be archived
+2026-08-20 22:36:37,313 - earthquake_archive - INFO - [TRANSFORM] Creating HDFS partition columns
+2026-08-20 22:36:38,623 - earthquake_archive - INFO - [TRANSFORM] Partition columns created: year, month, day
+2026-08-20 22:36:38,626 - earthquake_archive - INFO - [HDFS] Writing 113 records to /raw_layer/earthquakes
+2026-08-20 22:37:08,806 - earthquake_archive - INFO - [HDFS] HDFS write completed successfully
+2026-08-20 22:37:08,822 - earthquake_archive - INFO - [VERIFY] Verifying archived records in HDFS
+2026-08-20 22:38:40,140 - earthquake_archive - INFO - [VERIFY] Expected records: 113
+2026-08-20 22:38:40,157 - earthquake_archive - INFO - [VERIFY] Records found in HDFS: 113
+2026-08-20 22:38:40,161 - earthquake_archive - INFO - [VERIFY] HDFS validation successful
+2026-08-20 22:38:40,164 - earthquake_archive - INFO - [WATERMARK] Preparing to update watermark to 2026-08-20 22:36:27.561000
+2026-08-20 22:38:40,200 - earthquake_archive - INFO - [WATERMARK] MERGE query:
+2026-08-20 22:38:40,203 - earthquake_archive - INFO - 
+    MERGE INTO streaming_db.kafka.earthquake_archive_watermark target
+    USING (
+        SELECT
+            'earthquake_daily_archive' AS pipeline_name,
+            '2026-08-20 22:36:27.561000'::TIMESTAMP_LTZ AS last_ingestion_date
+    ) source
+    ON target.pipeline_name = source.pipeline_name
+
+    WHEN MATCHED THEN UPDATE SET
+        target.last_ingestion_date =
+            source.last_ingestion_date,
+        target.updated_at =
+            CURRENT_TIMESTAMP()
+
+    WHEN NOT MATCHED THEN INSERT (
+        pipeline_name,
+        last_ingestion_date
+    )
+    VALUES (
+        source.pipeline_name,
+        source.last_ingestion_date
+    )
+    
+2026-08-20 22:38:40,207 - earthquake_archive - INFO - [SNOWFLAKE] Connecting to Snowflake...
+2026-08-20 22:39:16,192 - earthquake_archive - INFO - [SNOWFLAKE] Connection established successfully
+2026-08-20 22:39:16,195 - earthquake_archive - INFO - [WATERMARK] Executing MERGE...
+2026-08-20 22:39:16,197 - earthquake_archive - INFO - Executing watermark MERGE
+2026-08-20 22:39:17,132 - earthquake_archive - INFO - [WATERMARK] MERGE executed successfully
+2026-08-20 22:39:17,963 - earthquake_archive - INFO - [WATERMARK] Committing transaction...
+2026-08-20 22:39:19,522 - earthquake_archive - INFO - [WATERMARK] Watermark successfully updated to 2026-08-20 22:36:27.561000
+2026-08-20 22:39:19,615 - earthquake_archive - INFO - [SNOWFLAKE] Closing Snowflake connection
+2026-08-20 22:39:21,018 - earthquake_archive - INFO - [SNOWFLAKE] Snowflake connection closed
+2026-08-20 22:39:21,096 - earthquake_archive - INFO - [FINISH] Earthquake daily archive job completed successfully
+2026-08-20 22:39:45,766 - earthquake_archive - INFO - [SPARK] Spark session stopped
