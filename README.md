@@ -203,14 +203,5 @@ The Power BI project (`Power_BI_Dashboard/Dashboard.pbip`) is a two-page operati
 
 ---
 
-## Known Limitations
-
-This project includes engineering notes on tradeoffs worth being aware of before extending it beyond a graduation/demo context:
-
-- No checkpoint location is configured on either Structured Streaming job, so offset-resume behavior after a restart should be verified.
-- The CDC and risk-analysis streaming jobs swallow per-batch/per-row exceptions (logged, not retried), which can silently drop events under failure.
-- The archiving job has hard-coded Snowflake credentials in source — these should be moved to environment variables/secrets management before any real deployment.
-- Silver-layer deduplication on `oid` is global across all Bronze snapshots, not per-snapshot — worth confirming against intended history-retention semantics.
-- The risk-analysis job writes via row-by-row JDBC `INSERT` rather than a bulk load, which will not scale well under higher earthquake volume.
 
 Full technical detail on each of these is available in `Tadline_Pipeline_Documentation.docx`.
