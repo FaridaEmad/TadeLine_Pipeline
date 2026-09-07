@@ -1,6 +1,6 @@
 # TadeLine Pipeline
 
-**ITI Data Management Track — Graduation Project (46th Intake)**
+**ITI Data Management Track — Graduation Project**
 
 TadeLine is an end-to-end data platform that combines **maritime vessel/port logistics** with **real-time seismic (earthquake) events** to answer one central operational question:
 
@@ -42,7 +42,7 @@ It stitches together batch ingestion, a Bronze/Silver/Gold lakehouse, Kafka-base
 
 TadeLine runs two pipelines side by side — a scheduled **batch** pipeline for port/vessel reference data, and an always-on **streaming** pipeline for earthquake events — both landing in a shared analytical layer that feeds Power BI.
 
-<img width="1104" height="459" alt="Image" src="https://github.com/user-attachments/assets/4ab3ff3e-9d04-44ee-a62f-2d861fbe8cb3" />
+<img width="1069" height="457" alt="Image" src="https://github.com/user-attachments/assets/816db8ba-ebe1-4b27-98c1-e35148667f47" />
 
 Airflow DAGs (`airflow/dags/`) orchestrate the batch chain (`Batch_ETL_DAG.py`) and the streaming jobs (`Stream_ETL_DAG.py`), enforcing that Silver only runs after Bronze succeeds, and Gold only after Silver succeeds.
 
@@ -199,7 +199,11 @@ See `Bronze_Layer/readme.md`, `Silver_Layer/readme.md`, and `Gold_Layer/readme.m
 The Power BI project (`Power_BI_Dashboard/Dashboard.pbip`) is a two-page operational dashboard sitting directly on the Snowflake Gold/ODS tables:
 
 - **Page 1 — Earthquake & Port Risk Monitor:** risk-level and date-range filters, KPI cards, a detail table of recent earthquakes, a risk-level comparison chart, and a world map plotting earthquakes and ports together.
+  
+  <img width="893" height="498" alt="Image" src="https://github.com/user-attachments/assets/738971bd-fc9f-4aec-95f8-a8058ec42e36" />
 - **Page 2 — Port Analysis:** a global port map, harbor-type breakdown, and supplies/communications availability pie charts sourced from the Gold Port Dimension.
+
+  <img width="896" height="503" alt="Image" src="https://github.com/user-attachments/assets/625700df-69d3-412c-a2a6-851365db286f" />
 
 ---
 
