@@ -42,44 +42,7 @@ It stitches together batch ingestion, a Bronze/Silver/Gold lakehouse, Kafka-base
 
 TadeLine runs two pipelines side by side — a scheduled **batch** pipeline for port/vessel reference data, and an always-on **streaming** pipeline for earthquake events — both landing in a shared analytical layer that feeds Power BI.
 
-```text
-┌─────────────────────────── BATCH (Ports / Vessels) ────────────────────────────┐
-│                                                                                  │
-│  SFTP Server ──(bash + sshpass)──▶ HDFS Bronze ──(PySpark)──▶ HDFS Silver       │
-│  (raw CSVs)      load_*_to_hdfs.sh    /raw_layer   ports_to_silver.py /silver_layer │
-│                                                              │                  │
-│                                                              ▼                  │
-│                                         PySpark  Ports_to_gold.py               │
-│                                          (dedup, metrics, surrogate keys)       │
-│                                                              │                  │
-│                                                              ▼                  │
-│                                      HDFS Gold /gold_layer ──▶ Hive external table │
-└──────────────────────────────────────────────────────────────────────────────────┘
-                                                              │
-┌────────────────────────── STREAMING (Earthquakes) ───────────────────────────────┐
-│                                                                                    │
-│  Postgres (earthquakes) ──Debezium CDC──▶ Kafka topic ──▶ Spark Structured        │
-│                                          earthquakes_json...     Streaming        │
-│                                                                    │              │
-│                              ┌─────────────────────────────────────┤              │
-│                              ▼                                     ▼              │
-│                 CDC → Snowflake replication          Earthquake–Port Risk        │
-│                 (MERGE into EARTHQUAKES)             (Haversine + bounding       │
-│                                                        box vs. DIM_PORT)          │
-│                                                              │                    │
-│                                                              ▼                    │
-│                                          FACT_EARTHQUAKE_PORT_RISK (Snowflake)    │
-│                                                                                    │
-│  Snowflake EARTHQUAKES ──(watermark batch job)──▶ HDFS cold archive (Parquet)     │
-└──────────────────────────────────────────────────────────────────────────────────┘
-                                                              │
-                                                              ▼
-                                          ┌───────────────────────────────────┐
-                                          │      Power BI Dashboard (ODS)      │
-                                          │  Page 1: Earthquake & Port Risk    │
-                                          │  Page 2: Port Analysis             │
-                                          └───────────────────────────────────┘
-```
+<img width="1104" height="459" alt="Image" src="https://github.com/user-attachments/assets/4ab3ff3e-9d04-44ee-a62f-2d861fbe8cb3" />
 
 Airflow DAGs (`airflow/dags/`) orchestrate the batch chain (`Batch_ETL_DAG.py`) and the streaming jobs (`Stream_ETL_DAG.py`), enforcing that Silver only runs after Bronze succeeds, and Gold only after Silver succeeds.
 
