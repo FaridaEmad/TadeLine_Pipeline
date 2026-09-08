@@ -124,6 +124,9 @@ TadeLine's warehouse (`case-study/Gold_Layer/TredLine_Model.drawio`) is a **fact
 - Vessel trip / vessel snapshot / vessel–port-risk facts round out the constellation, sharing `DIM_PORT` and `DIM_DATE` as role-playing dimensions
 
 This design supports drill-across analysis between maritime and seismic domains on shared calendar/date keys, and denormalized year/month columns on fact tables support partition pruning in a columnar warehouse (Snowflake).
+```mermaid
+erDiagram DIM_DATE { int date_key PK date full_date int year int month int day } DIM_TIME { int time_key PK int hour int minute int second } DIM_PORT { int port_key PK int oid string main_port_name string un_locode string country_code string region_name string world_water_body decimal latitude decimal longitude string harbor_size string harbor_type string harbor_use string shelter_afforded decimal channel_depth_m decimal anchorage_depth_m decimal cargo_pier_depth_m decimal oil_terminal_depth_m decimal lng_terminal_depth_m decimal maximum_vessel_length_m decimal maximum_vessel_beam_m int supplies_count decimal supplies_rate int communications_count decimal comm_rate } FACT_EARTHQUAKE { int earthquake_key PK int date_key FK int time_key FK decimal magnitude decimal depth decimal latitude decimal longitude string region } FACT_EARTHQUAKE_PORT_RISK { int earthquake_key FK int port_key FK int date_key FK int time_key FK decimal distance_km decimal impact_radius_km string risk_level } DIM_DATE ||--o{ FACT_EARTHQUAKE : "event date" DIM_TIME ||--o{ FACT_EARTHQUAKE : "event time" DIM_DATE ||--o{ FACT_EARTHQUAKE_PORT_RISK : "risk date" DIM_TIME ||--o{ FACT_EARTHQUAKE_PORT_RISK : "risk time" DIM_PORT ||--o{ FACT_EARTHQUAKE_PORT_RISK : "affected port" FACT_EARTHQUAKE ||--o{ FACT_EARTHQUAKE_PORT_RISK : "earthquake"
+```
 
 ---
 
